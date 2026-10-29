@@ -26,7 +26,8 @@
       .from('.hero .pill',{autoAlpha:0,y:16,duration:.6},0.1)
       .from('.hero .kicker',{autoAlpha:0,y:16,duration:.6},0.2)
       .from(words,{yPercent:115,duration:.95,stagger:.07},0.3)
-      .from('.hero p, .hero .btns, .hero .badges',{autoAlpha:0,y:26,duration:.8,stagger:.12},'-=.55');
+      .from('.hero p, .hero .btns, .hero .badges',{autoAlpha:0,y:26,duration:.8,stagger:.12},'-=.55')
+      .from('.hcard',{autoAlpha:0,y:26,scale:.9,duration:.8,stagger:.18,ease:'back.out(1.4)'},'-=.9');
 
     /* hero photo parallax */
     gsap.to('.hero .pic',{y:-34,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
