@@ -1271,3 +1271,12 @@ header.site{top:0}
 
 #apropos .trio.two{grid-template-columns:1fr 1fr;grid-template-rows:1fr;aspect-ratio:4/5;max-width:560px}
 #apropos .trio.two .pic:first-child{grid-row:auto}
+
+/* about: two whole photos (no crop), arched, staggered */
+#apropos .trio.two{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:18px;align-items:start;aspect-ratio:auto;max-width:600px;position:static}
+#apropos .trio.two .pic{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:999px 999px 18px 18px;box-shadow:0 22px 48px rgba(0,0,0,.14);border:5px solid #fff;background:#fff}
+#apropos .trio.two .pic:nth-child(2){margin-top:56px;border-radius:18px 18px 999px 999px}
+@media(max-width:980px){#apropos .trio.two{max-width:480px;margin-inline:auto}}
+@media(max-width:560px){#apropos .trio.two{gap:12px}#apropos .trio.two .pic:nth-child(2){margin-top:34px}}
+#apropos .trio.two .pic{border-radius:70px 70px 18px 18px}
+#apropos .trio.two .pic:nth-child(2){border-radius:18px 18px 70px 70px}
