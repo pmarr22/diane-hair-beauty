@@ -1372,3 +1372,26 @@ footer .logo.foot .logoimg{height:74px;filter:none}
 header.site .logo{background:#000}
 header.site{background:#000;border-bottom:1px solid rgba(212,175,55,.3)}
 .logo .logoimg{border-radius:0}
+
+/* ================= round 21 ================= */
+.bm-track,.rvm-track{position:relative}
+.nojump,.nojump *{transition:none !important}
+
+/* services: tabs on the side */
+.svlayout{display:grid;grid-template-columns:230px 1fr;gap:40px;margin-top:38px;align-items:start}
+.svtabs{flex-direction:column;align-items:stretch;justify-content:flex-start;margin:0;gap:10px;position:sticky;top:110px}
+.svtabs button{border-radius:18px;justify-content:flex-start;text-align:left;padding:10px 16px 10px 10px}
+.svlayout .svpanel{margin-top:0;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:980px){.svlayout{grid-template-columns:1fr;gap:20px}.svtabs{position:static;display:grid;grid-template-columns:1fr 1fr}.svlayout .svpanel{grid-template-columns:1fr;gap:28px}}
+
+/* faq banner + page */
+.faqban{padding:56px 0;background:var(--grey)}
+.faqb{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 40px;box-shadow:0 16px 40px rgba(0,0,0,.05);position:relative}
+.faqb::before{content:"";position:absolute;inset:6px;border:1px solid rgba(212,175,55,.3);border-radius:17px;pointer-events:none}
+.faqb>*{position:relative}
+.faqb h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:4px 0 6px}
+.faqb p{color:#666;max-width:46ch}
+.faqpage{padding:30px 0 90px}
+@media(max-width:700px){.faqb{padding:26px 22px}}
+.svlayout .svpanel{align-items:start}
+.svlayout .svmedia{max-width:none}
