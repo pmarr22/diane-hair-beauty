@@ -1297,3 +1297,20 @@ header.site{top:0}
 .estcta .btn.cta-shine{background:linear-gradient(180deg,#fff,#fbf7ec);color:#1b1b1b;border:1px solid var(--gold);border-radius:3px;padding:14px 30px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1rem;letter-spacing:.04em;animation:none;box-shadow:0 6px 18px rgba(168,134,42,.14),inset 0 0 0 3px #fff,inset 0 0 0 4px rgba(212,175,55,.35)}
 .estcta .btn.cta-shine:hover{background:linear-gradient(180deg,#fffdf6,#f6edd2);color:#1b1b1b;transform:translateY(-1px);box-shadow:0 10px 24px rgba(168,134,42,.22),inset 0 0 0 3px #fff,inset 0 0 0 4px var(--gold)}
 .estcta .btn.cta-shine::after{background:linear-gradient(105deg,transparent,rgba(212,175,55,.35),transparent)}
+
+/* esthétique: compact */
+.est{padding:48px 0}
+.estgrid{gap:44px;grid-template-columns:.8fr 1.2fr;max-width:1040px;margin-inline:auto}
+.estm{padding-bottom:22px;max-width:380px}
+.estm2{right:-18px;width:44%}
+.est .lead{font-size:.95rem;margin-top:10px}
+.estpros{margin:14px 0 16px}
+.ep{padding:10px 0;gap:12px}
+.ep .pm{width:34px;height:34px;font-size:.95rem}
+.ep b{font-size:.92rem}
+.ep p{font-size:.76rem;margin:2px 0}
+.estcta{padding:16px 20px;gap:14px;border-radius:16px}
+.estcta b{font-size:1.1rem}
+.estcta span{font-size:.8rem}
+.estcta .btn.cta-shine{padding:11px 22px;font-size:.9rem}
+@media(max-width:900px){.estgrid{grid-template-columns:1fr;gap:30px}.estm{max-width:340px;margin-inline:auto}}
