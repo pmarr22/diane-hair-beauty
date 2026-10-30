@@ -1314,3 +1314,46 @@ header.site{top:0}
 .estcta span{font-size:.8rem}
 .estcta .btn.cta-shine{padding:11px 22px;font-size:.9rem}
 @media(max-width:900px){.estgrid{grid-template-columns:1fr;gap:30px}.estm{max-width:340px;margin-inline:auto}}
+
+
+/* ===== discreet floating buttons: small icon circles, label on hover ===== */
+.fab{gap:8px;right:16px;bottom:16px}
+.fab a,.fab .ai{width:42px;height:42px;padding:0;border-radius:50%;justify-content:center;gap:0;font-size:0;overflow:hidden;background:rgba(255,255,255,.92);color:var(--black);border:1px solid rgba(212,175,55,.55);box-shadow:0 6px 18px rgba(0,0,0,.14);backdrop-filter:blur(6px);transition:width .3s,box-shadow .3s}
+.fab .wa{background:rgba(255,255,255,.92);color:#1f9d55}
+.fab .rs{background:rgba(255,255,255,.92);color:var(--black);box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.fab svg{width:19px;height:19px;flex:none}
+.fab a::after,.fab .ai::after{display:none}
+@media(hover:hover){.fab a:hover,.fab .ai:hover{width:auto;padding:0 16px 0 13px;gap:8px;font-size:.78rem;font-weight:500;box-shadow:0 10px 24px rgba(0,0,0,.18)}}
+.fab .ai svg{color:var(--gold-d)}
+
+/* esthétique: photo column fills the height (no empty space under it) */
+.estgrid{align-items:stretch}
+.estm{display:flex;flex-direction:column;max-width:none;padding-bottom:22px}
+.estm>.pic{flex:1;min-height:300px;height:100%;object-fit:cover;width:100%}
+@media(max-width:900px){.estm>.pic{height:auto;flex:none;min-height:0}}
+
+/* ===== footer: light, delicate ===== */
+footer{background:#f5f3ef;color:#6a6a6a;padding:56px 0 24px;border-top:1px solid #e6e1d6;position:relative}
+footer::before{content:"";position:absolute;top:-1px;left:50%;width:120px;height:2px;margin-left:-60px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+footer h4{color:var(--gold-d);font-family:var(--serif);font-style:italic;font-weight:500;font-size:1rem;letter-spacing:.02em;text-transform:none;margin-bottom:14px}
+footer ul{gap:8px}
+footer a{color:#5c5c5c;font-size:.88rem}
+footer a:hover{color:var(--black)}
+footer .logo{background:transparent}
+.logo.foot .logoimg{height:84px;filter:drop-shadow(0 1px 0 rgba(0,0,0,.08))}
+.soc a{border-color:#d9d3c5;color:#6a6a6a;background:#fff}
+.soc a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.copy{border-top:1px solid #e3ddd0;color:#8a8a8a;font-size:.76rem;margin-top:36px}
+.made-by{color:#8a8a8a}
+.made-by b{font-weight:600;color:var(--gold-d);letter-spacing:.14em}
+.made-by u{color:#6a6a6a;border-bottom-color:rgba(168,134,42,.5)}
+.made-by-logo{height:22px}
+.made-by:hover{color:var(--black)}
+.estgrid{align-items:center;grid-template-columns:1fr 1.05fr}
+.estm{display:block;max-width:460px;margin-inline:auto;padding-bottom:30px}
+.estm>.pic{height:auto;min-height:0;aspect-ratio:auto;object-fit:contain;flex:none}
+.estm2{right:-20px;bottom:0;width:46%}
+@media(max-width:900px){.estm{max-width:380px}}
+/* footer logo: keep it readable on the light background (gold plate) */
+footer .logo.foot{background:#0b0b0b;border-radius:12px;padding:10px 18px;display:inline-flex}
+footer .logo.foot .logoimg{height:74px;filter:none}
