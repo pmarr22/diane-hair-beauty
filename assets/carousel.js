@@ -67,6 +67,8 @@ function dhbSpot(stageSel,trackSel,itemSel,ms,withDots){
     if(dots) [].slice.call(dots.children).forEach(function(b,k){ b.classList.toggle('on',k===((i%n)+n)%n); });
     var f=items[i]; track.style.transform='translateX('+(-(f.offsetLeft+f.offsetWidth/2-stage.clientWidth/2))+'px)'; }
   function go(k){ i=k; pos(); }
+  ['prev','next'].forEach(function(d){ var bt=document.createElement('button'); bt.type='button'; bt.className='snav '+d; bt.setAttribute('aria-label',d); bt.innerHTML=d==='prev'?'‹':'›';
+    bt.addEventListener('click',function(e){ e.stopPropagation(); go(i+(d==='next'?1:-1)); arm(); }); stage.appendChild(bt); });
   function arm(){ clearTimeout(tm); if(reduce||!vis) return; tm=setTimeout(function(){ go(i+1); arm(); },ms); }
   track.addEventListener('transitionend',function(e){ if(e.target!==track||e.propertyName!=='transform') return;
     if(i>=2*n||i<n){ i=((i%n)+n)%n+n; stage.classList.add('nojump'); pos(); void track.offsetWidth; stage.classList.remove('nojump'); } });
