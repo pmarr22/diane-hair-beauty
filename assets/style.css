@@ -1228,3 +1228,28 @@ header.site{top:0}
 /* ring gallery: light panel */
 .ringwrap{background:radial-gradient(600px 320px at 50% 0%,rgba(212,175,55,.16),transparent 70%),linear-gradient(180deg,#f7f5f1,#ecebe8);border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.06)}
 .ringwrap::after{background:linear-gradient(90deg,#f1efeb 0,transparent 12%,transparent 88%,#f1efeb 100%)}
+
+/* ================= round 20 ================= */
+/* original logo */
+.logo{padding:4px 6px;background:transparent}
+.logo .logoimg{height:66px;width:auto;display:block}
+.logo.foot .logoimg{height:96px}
+@media(max-width:560px){.logo .logoimg{height:52px}}
+
+/* reviews: one at a time, zoom in / zoom out */
+.rvmq{padding:36px 0 40px}
+.rvm-track{animation:none !important;transition:transform 1.4s cubic-bezier(.22,.8,.2,1)}
+.rvm{width:min(380px,78vw);margin:0 18px;opacity:.35;transform:scale(.82);filter:saturate(.7);transition:transform 1.3s cubic-bezier(.22,.8,.2,1),opacity 1s,filter 1s;box-shadow:0 12px 28px rgba(0,0,0,.06)}
+.rvm.on{opacity:1;transform:scale(1.14);filter:none;z-index:2;box-shadow:0 28px 60px rgba(0,0,0,.16)}
+.rvm.on p{color:#111}
+@media(prefers-reduced-motion:reduce){.rvm-track,.rvm{transition:none}}
+
+/* diagnostic: centred and compact */
+.dg2{grid-template-columns:1fr;justify-items:center;text-align:center;max-width:860px;margin-inline:auto;padding:30px 34px;gap:18px}
+.dg2t{order:1}.dg2t p{margin-inline:auto}
+.dg2b{order:2;align-items:center;flex-direction:row;gap:18px;flex-wrap:wrap;justify-content:center;grid-column:auto;grid-row:auto}
+.dg2s{order:3;grid-column:auto;grid-row:auto;width:100%;margin-top:6px}
+.dg2b .btn{padding:10px 26px;font-size:.8rem}
+.dg2b .more{align-self:center;font-size:.7rem}
+.dg2s li{text-align:left}
+@media(max-width:860px){.dg2{padding:24px 18px}}

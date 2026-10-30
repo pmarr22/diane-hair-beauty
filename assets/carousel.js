@@ -72,3 +72,21 @@
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(reduce){ v.controls=true; return; }
   new IntersectionObserver(function(es){ if(es[0].isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); } else v.pause(); },{threshold:.4}).observe(v);
 })();
+
+/* Reviews: one comment at a time, zoom in / zoom out, slow */
+(function(){
+  var stage=document.querySelector('.rvmq'), track=document.querySelector('.rvm-track'); if(!stage||!track) return;
+  var cards=[].slice.call(track.querySelectorAll('.rvm')); if(!cards.length) return;
+  var i=0,tm,hov=false,vis=false,reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n){ i=(n+cards.length)%cards.length;
+    cards.forEach(function(c,k){ c.classList.toggle('on',k===i); });
+    var c=cards[i]; var off=c.offsetLeft+c.offsetWidth/2-stage.clientWidth/2; track.style.transform='translateX('+(-off)+'px)'; }
+  function arm(){ clearTimeout(tm); if(reduce||hov||!vis) return; tm=setTimeout(function(){ go(i+1); arm(); },6500); }
+  cards.forEach(function(c,k){ c.addEventListener('click',function(){ if(k!==i){ go(k); arm(); } }); });
+  stage.addEventListener('mouseenter',function(){ hov=true; clearTimeout(tm); });
+  stage.addEventListener('mouseleave',function(){ hov=false; arm(); });
+  window.addEventListener('resize',function(){ go(i); });
+  window.addEventListener('load',function(){ go(i); });
+  go(0);
+  if('IntersectionObserver' in window) new IntersectionObserver(function(es){ vis=es[0].isIntersecting; arm(); },{threshold:.3}).observe(stage); else { vis=true; arm(); }
+})();
