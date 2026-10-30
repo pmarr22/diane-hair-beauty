@@ -1530,3 +1530,4 @@ html,body{overflow-x:clip}
 @media(max-width:700px){#apropos .trio.two .pic{aspect-ratio:auto}}
 @media(max-width:700px){#apropos .trio.two{height:auto !important;aspect-ratio:auto !important;grid-template-rows:auto !important;grid-auto-rows:auto}#apropos .trio.two .pic{height:auto !important;max-height:none}#apropos .split{grid-template-rows:auto auto}}
 .hmedia{align-self:center}
+.brart{width:280px}@media(max-width:700px){.brart{max-width:320px;width:100%}}
