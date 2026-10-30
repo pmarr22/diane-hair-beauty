@@ -1133,3 +1133,8 @@ header.site{top:var(--promoh)}
   .tp-nav{top:calc(var(--promoh) + 88px)}
 }
 @media(prefers-reduced-motion:reduce){.cta-big,.btn.cta-shine{animation:none}.cta-big::after{display:none}}
+
+/* ajustes de Priscila (GitHub) conservés */
+/* badges hero (pilules) + photo formation centree */
+.fphoto{margin-inline:auto}
+@media (min-width:981px){.form2{grid-template-columns:minmax(0,440px) minmax(0,640px);gap:56px;justify-content:center}}
