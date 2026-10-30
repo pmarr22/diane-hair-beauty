@@ -1268,3 +1268,6 @@ header.site{top:0}
 .tp-nav .wrap{justify-content:safe center;gap:26px}
 .tp-nav a{white-space:nowrap;font-size:.95rem}
 @media(min-width:1100px){.tp-nav .wrap{gap:34px}}
+
+#apropos .trio.two{grid-template-columns:1fr 1fr;grid-template-rows:1fr;aspect-ratio:4/5;max-width:560px}
+#apropos .trio.two .pic:first-child{grid-row:auto}
