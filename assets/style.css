@@ -1280,3 +1280,10 @@ header.site{top:0}
 @media(max-width:560px){#apropos .trio.two{gap:12px}#apropos .trio.two .pic:nth-child(2){margin-top:34px}}
 #apropos .trio.two .pic{border-radius:70px 70px 18px 18px}
 #apropos .trio.two .pic:nth-child(2){border-radius:18px 18px 70px 70px}
+
+/* about: big photo + smaller one at the lower side */
+#apropos .trio.two{display:block;position:relative;max-width:540px;margin-inline:auto;padding:0 0 70px;aspect-ratio:auto}
+#apropos .trio.two .pic{margin:0;display:block;object-fit:contain;aspect-ratio:auto;height:auto;border:0;background:none}
+#apropos .trio.two .pic:first-child{width:80%;border-radius:22px;box-shadow:0 28px 60px rgba(0,0,0,.16)}
+#apropos .trio.two .pic:nth-child(2){position:absolute;right:0;bottom:0;width:46%;margin:0;border:6px solid #fff;border-radius:20px;box-shadow:0 22px 48px rgba(0,0,0,.22)}
+@media(max-width:980px){#apropos .trio.two{max-width:440px}}
