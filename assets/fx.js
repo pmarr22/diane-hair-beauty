@@ -5,7 +5,7 @@
   var lb=document.createElement('div'); lb.className='lightbox'; lb.innerHTML='<img alt=""><button aria-label="Close">&times;</button>'; document.body.appendChild(lb);
   var lbi=$('img',lb); function closeLb(){lb.classList.remove('open')}
   lb.addEventListener('click',closeLb); document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
-  $$('.gmq .pic,.duo .pic,.batrack .pic').forEach(function(im){ im.addEventListener('click',function(){ lbi.src=im.currentSrc||im.src; lbi.alt=im.alt; lb.classList.add('open'); }); });
+  $$('.gmq .pic,.duo .pic,.bm-track .pic,.tp-ph .pic').forEach(function(im){ im.addEventListener('click',function(){ lbi.src=im.currentSrc||im.src; lbi.alt=im.alt; lb.classList.add('open'); }); });
 
   if(!window.gsap||!window.ScrollTrigger) return;   /* site stays fully usable without GSAP */
   gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +13,7 @@
 
   mm.add('(prefers-reduced-motion: no-preference)',function(){
     /* hero intro: words rise, photo unveils */
+    if($('.hero h1')){
     var h1=$('.hero h1'), words=[];
     (function walk(n){ [].slice.call(n.childNodes).forEach(function(c){
       if(c.nodeType===3){ var f=document.createDocumentFragment();
@@ -26,15 +27,15 @@
       .from('.hero .pill',{autoAlpha:0,y:16,duration:.6},0.1)
       .from('.hero .kicker',{autoAlpha:0,y:16,duration:.6},0.2)
       .from(words,{yPercent:115,duration:.95,stagger:.07},0.3)
-      .from('.hero p, .hero .btns, .hero .badges',{autoAlpha:0,y:26,duration:.8,stagger:.12},'-=.55')
-      .from('.hcard',{autoAlpha:0,y:26,scale:.9,duration:.8,stagger:.18,ease:'back.out(1.4)'},'-=.9');
+      .from('.hero p, .hero .btns, .hero .hstats',{autoAlpha:0,y:26,duration:.8,stagger:.12},'-=.55');
 
     /* hero photo parallax */
     gsap.to('.hero .pic',{y:-34,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    }
 
     /* photo unveil on scroll (clip-path cleared after so shadows come back) */
     $$('.pic').forEach(function(p){
-      if(p.closest('.hero')||p.closest('.lightbox')||p.closest('.gmq')) return;
+      if(p.closest('.hero')||p.closest('.lightbox')||p.closest('.gmq')||p.closest('.bamq')) return;
       gsap.fromTo(p,{clipPath:'inset(9% 9% 9% 9% round 12px)',scale:1.07},
         {clipPath:'inset(0% 0% 0% 0% round 12px)',scale:1,duration:1.2,ease:'power3.out',clearProps:'clipPath,transform',
          scrollTrigger:{trigger:p,start:'top 90%',once:true}});

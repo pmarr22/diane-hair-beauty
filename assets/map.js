@@ -3,6 +3,10 @@
   var D=window.DHB||{};
   function $$(s){return [].slice.call(document.querySelectorAll(s))}
 
+  /* topbar: open now */
+  var tb=document.querySelector('.tb-open');
+  if(tb&&window.DHBHours&&D.tpl){ var s0=DHBHours.status(); tb.textContent=DHBHours.text(D.tpl,D.days); tb.classList.add(s0.open?'is-open':'is-closed'); }
+
   /* open / closed badge + today's row */
   var b=document.querySelector('.openbadge');
   if(b&&window.DHBHours&&D.tpl){
