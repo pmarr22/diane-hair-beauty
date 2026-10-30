@@ -1287,3 +1287,13 @@ header.site{top:0}
 #apropos .trio.two .pic:first-child{width:80%;border-radius:22px;box-shadow:0 28px 60px rgba(0,0,0,.16)}
 #apropos .trio.two .pic:nth-child(2){position:absolute;right:0;bottom:0;width:46%;margin:0;border:6px solid #fff;border-radius:20px;box-shadow:0 22px 48px rgba(0,0,0,.22)}
 @media(max-width:980px){#apropos .trio.two{max-width:440px}}
+
+/* esthétique CTA: light, elegant */
+.estcta{background:linear-gradient(135deg,#fff,#faf8f4);color:var(--black);border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.06);position:relative}
+.estcta::before{content:"";position:absolute;inset:6px;border:1px solid rgba(212,175,55,.35);border-radius:15px;pointer-events:none}
+.estcta>*{position:relative}
+.estcta b{color:var(--black)}
+.estcta span{color:#666}
+.estcta .btn.cta-shine{background:linear-gradient(180deg,#fff,#fbf7ec);color:#1b1b1b;border:1px solid var(--gold);border-radius:3px;padding:14px 30px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1rem;letter-spacing:.04em;animation:none;box-shadow:0 6px 18px rgba(168,134,42,.14),inset 0 0 0 3px #fff,inset 0 0 0 4px rgba(212,175,55,.35)}
+.estcta .btn.cta-shine:hover{background:linear-gradient(180deg,#fffdf6,#f6edd2);color:#1b1b1b;transform:translateY(-1px);box-shadow:0 10px 24px rgba(168,134,42,.22),inset 0 0 0 3px #fff,inset 0 0 0 4px var(--gold)}
+.estcta .btn.cta-shine::after{background:linear-gradient(105deg,transparent,rgba(212,175,55,.35),transparent)}
