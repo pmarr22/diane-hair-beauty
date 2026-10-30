@@ -1357,3 +1357,18 @@ footer .logo{background:transparent}
 /* footer logo: keep it readable on the light background (gold plate) */
 footer .logo.foot{background:#0b0b0b;border-radius:12px;padding:10px 18px;display:inline-flex}
 footer .logo.foot .logoimg{height:74px;filter:none}
+
+/* two reels side by side */
+.reel2{max-width:900px;margin:54px auto 0;text-align:center}
+.reel2h h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);margin:6px 0 8px}
+.reel2h p{color:#666;max-width:46ch;margin:0 auto}
+.reel2g{display:grid;grid-template-columns:1fr 1fr;gap:28px;justify-items:center;margin:28px 0 26px}
+.reel2g figure{margin:0;width:100%;max-width:290px}
+.reel2g .reelv{width:100%}
+.reel2g figcaption{margin-top:12px;font-family:var(--serif);font-style:italic;color:#555;font-size:1rem}
+@media(max-width:560px){.reel2g{gap:12px}.reel2g figcaption{font-size:.9rem}}
+/* original logo, faithful colour: sits on a black plate */
+.logo .logoimg{background:#000;border-radius:6px}
+header.site .logo{background:#000}
+header.site{background:#000;border-bottom:1px solid rgba(212,175,55,.3)}
+.logo .logoimg{border-radius:0}
