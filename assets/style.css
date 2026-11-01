@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap');
 :root{
   --black:#0a0a0a; --ink:#141414; --white:#ffffff; --grey:#f3f3f3; --line:#e4e4e4;
   --gold:#d4af37; --gold-d:#a8862a; --gold-l:#ecd58a; --red:#a3202a;
@@ -1639,3 +1640,4 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .tpcont{padding-top:36px}
 .sb .paybtn{margin-top:4px}
 .hero{order:-9}
+nav.main,nav.main a,.ddt,.ddm a,.btn,button{font-family:'Raleway',var(--sans);font-weight:600;letter-spacing:.02em}
