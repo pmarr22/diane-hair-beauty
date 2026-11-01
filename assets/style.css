@@ -1552,3 +1552,20 @@ html,body{overflow-x:clip}
   .hmedia::after{width:42px;height:42px;left:-6px;top:-8px;font-size:1rem}
   .hmedia .pic,.hmedia .pic.tall{border-width:5px;border-radius:70px 18px 18px 18px;box-shadow:0 22px 50px rgba(0,0,0,.25),0 0 0 1px rgba(212,175,55,.5)}
 }
+/* palette: noir, blanc, or. Marron/orange reserves a la promo d'automne */
+:root{--gold-d:#b58f1e}
+.hero{background:radial-gradient(760px 520px at 78% 38%,rgba(212,175,55,.16),transparent 70%),#fff}
+.tzbox,.estcta{background:linear-gradient(135deg,#fff,#f7f7f7)}
+.tp-cta{background:radial-gradient(520px 300px at 85% 0%,rgba(212,175,55,.26),transparent 70%),#0a0a0a}
+.tzbox .btn.cta-shine,.estcta .btn.cta-shine{background:linear-gradient(180deg,#fff,#f6f6f6)}
+.tzbox .btn.cta-shine:hover,.estcta .btn.cta-shine:hover{background:linear-gradient(180deg,#fff,#efefef)}
+.ringwrap{background:radial-gradient(600px 320px at 50% 0%,rgba(212,175,55,.16),transparent 70%),linear-gradient(180deg,#f7f7f7,#efefef)}
+.ringwrap::after{background:linear-gradient(90deg,#f3f3f3 0,transparent 12%,transparent 88%,#f3f3f3 100%)}
+footer{background:#f3f3f3;border-top-color:#e4e4e4}
+.soc a{border-color:#d9d9d9}
+.copy{border-top-color:#e4e4e4}
+.brband{background:linear-gradient(110deg,#f3f3f3,#fff 55%,#f3f3f3);border-color:#e4e4e4}
+.cchips button:hover{background:#fafafa}
+.tp-item.soin{background:linear-gradient(135deg,rgba(212,175,55,.08),#fff 70%)}
+.igi{background:linear-gradient(135deg,#0a0a0a,#2c2c2c 45%,#d4af37)}
+.badges span{background:linear-gradient(180deg,#fff,#f6f6f6);border-color:var(--gold)}
