@@ -1596,3 +1596,24 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .hero2 .hstats b{font-size:1.5rem}
 .hero2 .hstats span{font-size:.62rem}
 @media (max-width:700px){.hero2 .hstats{margin:18px 16px 0}.hero2 .hstats b{font-size:1.1rem}.hero2 .hstats span{font-size:.55rem}}
+/* ordre de la page d'accueil: galerie, produits, formation, a propos, avis, contact; le reste ensuite */
+.hero2{order:-7}
+#galerie{order:-6}
+#produits-cta{order:-5}
+#formations{order:-4}
+#apropos{order:-3}
+#avis{order:-2}
+#contact{order:-1}
+.brands{order:1}
+#services{order:2}
+#prestations{order:3}
+#avant-apres{order:4}
+#produits{order:5}
+#faq{order:6}
+/* chamada para a pagina de produtos */
+#produits-cta{padding:56px 0}
+.pcta{padding:56px 40px;border-radius:26px;text-align:center;color:#fff;background:radial-gradient(520px 300px at 85% 0%,rgba(212,175,55,.26),transparent 70%),#0a0a0a}
+.pcta h2{color:#fff}
+.pcta p{max-width:62ch;margin:14px auto 0;color:rgba(255,255,255,.82)}
+.pcta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.pcta .btn.ghost{color:#fff;border-color:rgba(255,255,255,.45);background:transparent}
