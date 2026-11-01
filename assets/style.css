@@ -1617,3 +1617,7 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .pcta p{max-width:62ch;margin:14px auto 0;color:rgba(255,255,255,.82)}
 .pcta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 .pcta .btn.ghost{color:#fff;border-color:rgba(255,255,255,.45);background:transparent}
+/* chamada Prestations: depois de la galerie, avant les produits */
+.hero2{order:-9}
+#galerie{order:-8}
+#prestations-cta{order:-6;padding:56px 0}
