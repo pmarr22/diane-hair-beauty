@@ -1634,3 +1634,7 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .pcta .btns{justify-content:flex-start}
 .pcta .btn.ghost{color:var(--ink);border-color:var(--gold);background:transparent}
 @media (max-width:760px){.pcta{padding:236px 24px 32px 30px}.pcta::after{left:0;width:auto;height:200px;bottom:auto;border-radius:0;box-shadow:none;border-bottom:1px solid rgba(212,175,55,.5)}.pcta::before{display:none}}
+/* pages produits: selection du salon en haut, puis les cartes */
+.tp-hero:has(+ #produits){padding-bottom:8px}
+.tpcont{padding-top:36px}
+.sb .paybtn{margin-top:4px}
