@@ -1569,3 +1569,25 @@ footer{background:#f3f3f3;border-top-color:#e4e4e4}
 .tp-item.soin{background:linear-gradient(135deg,rgba(212,175,55,.08),#fff 70%)}
 .igi{background:linear-gradient(135deg,#0a0a0a,#2c2c2c 45%,#d4af37)}
 .badges span{background:linear-gradient(180deg,#fff,#f6f6f6);border-color:var(--gold)}
+/* ---- nouvelle ouverture: photo + slogan, offre du mois a gauche ---- */
+main#top{display:flex;flex-direction:column}
+.hero2{order:-2;background:#fff;padding:0 0 28px}
+#galerie{order:-1}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.h2wrap{position:relative;max-width:1672px;margin:0 auto}
+.h2img{display:block;width:100%;height:auto}
+.h2promo{position:absolute;left:3%;top:50%;transform:translateY(-50%);width:clamp(150px,16vw,230px);padding:18px 14px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;text-decoration:none;color:#ffe9cc;background:linear-gradient(160deg,#52220d,#241006);border:1px solid rgba(255,143,31,.55);border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.h2promo .lf{font-size:2rem;color:#ff8f1f;margin:0}
+.h2promo small{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#ffd58a}
+.h2promo b{font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,2.8rem);line-height:1;color:#fff}
+.h2promo span{font-weight:600;font-size:.95rem}
+.h2promo em{font-family:var(--serif);font-size:.82rem;color:#ffc266}
+.h2btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:24px 16px 0}
+@media (max-width:700px){.h2promo{position:static;transform:none;width:auto;margin:12px 16px 0;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:10px;border-radius:14px}.h2promo .lf{font-size:1.4rem}}
+/* menu: Autres prestations (deroulant) */
+nav.main .dd{position:relative;display:inline-flex;align-items:center}
+nav.main .ddm{display:none;position:absolute;top:100%;left:0;min-width:210px;flex-direction:column;gap:2px;padding:8px;background:#0a0a0a;border:1px solid var(--gold);border-radius:10px;box-shadow:0 14px 30px rgba(0,0,0,.25);z-index:60}
+nav.main .dd:hover .ddm,nav.main .dd:focus-within .ddm{display:flex}
+nav.main .ddm a{padding:9px 12px;color:#fff;border-radius:6px;white-space:nowrap}
+nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
+@media (max-width:900px){nav.main .dd{display:block}nav.main .ddm{position:static;display:flex;min-width:0;padding:0 0 0 14px;background:transparent;border:0;box-shadow:none}nav.main .ddm a{color:inherit}}
