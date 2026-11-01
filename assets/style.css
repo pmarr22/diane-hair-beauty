@@ -1621,3 +1621,16 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .hero2{order:-9}
 #galerie{order:-8}
 #prestations-cta{order:-6;padding:56px 0}
+/* chamadas (Prestations / Produits): design clair et editorial, sans gros bloc noir */
+.pcta{position:relative;overflow:hidden;padding:56px 46% 56px 56px;border-radius:30px;text-align:left;color:var(--ink);background:linear-gradient(135deg,#fff 0%,#f7f7f7 100%);border:1px solid rgba(212,175,55,.55);box-shadow:0 26px 60px rgba(0,0,0,.08)}
+.pcta::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--gold-l),var(--gold),var(--gold-d))}
+.pcta::after{content:"";position:absolute;top:0;right:0;bottom:0;width:42%;border-radius:220px 0 0 220px;background:center/cover no-repeat;box-shadow:inset 0 0 0 1px rgba(212,175,55,.5)}
+#prestations-cta .pcta::after{background-image:url(img/res-brune.webp)}
+#produits-cta .pcta::after{background-image:url(img/kerastase.webp)}
+.pcta .kicker{display:inline-flex;align-items:center;gap:10px}
+.pcta .kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
+.pcta h2{color:var(--ink);margin-top:10px}
+.pcta p{max-width:46ch;margin:16px 0 0;color:#555}
+.pcta .btns{justify-content:flex-start}
+.pcta .btn.ghost{color:var(--ink);border-color:var(--gold);background:transparent}
+@media (max-width:760px){.pcta{padding:236px 24px 32px 30px}.pcta::after{left:0;width:auto;height:200px;bottom:auto;border-radius:0;box-shadow:none;border-bottom:1px solid rgba(212,175,55,.5)}.pcta::before{display:none}}
