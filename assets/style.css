@@ -1591,3 +1591,8 @@ nav.main .dd:hover .ddm,nav.main .dd:focus-within .ddm{display:flex}
 nav.main .ddm a{padding:9px 12px;color:#fff;border-radius:6px;white-space:nowrap}
 nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 @media (max-width:900px){nav.main .dd{display:block}nav.main .ddm{position:static;display:flex;min-width:0;padding:0 0 0 14px;background:transparent;border:0;box-shadow:none}nav.main .ddm a{color:inherit}}
+/* faixa de chiffres sous la photo d'ouverture */
+.hero2 .hstats{max-width:760px;margin:26px auto 0;padding:16px 0}
+.hero2 .hstats b{font-size:1.5rem}
+.hero2 .hstats span{font-size:.62rem}
+@media (max-width:700px){.hero2 .hstats{margin:18px 16px 0}.hero2 .hstats b{font-size:1.1rem}.hero2 .hstats span{font-size:.55rem}}
