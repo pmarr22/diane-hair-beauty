@@ -1779,3 +1779,10 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   .mhband .mhart::before,.mhband .mhart img{border-radius:100px 100px 16px 16px}
   .mhband .mht p{margin-inline:auto}
 }
+
+/* Produits brésiliens: nouvelle photo + mise en avant Los Pistoleros */
+.brband .brart{width:min(300px,100%);transform:none;animation:none;filter:none}
+.brband .brart img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.16);border:4px solid #fff}
+.brt .brhl{display:block;margin:0 0 18px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.75);border:1px solid rgba(212,175,55,.55);color:#3a2b12;max-width:48ch;font-size:1rem}
+.brt .brhl b{color:#9b6b12;font-family:var(--serif);font-size:1.12em;font-style:italic;font-weight:600}
+@media (max-width:700px){.brband .brart{width:min(300px,84%)}.brt .brhl{margin-inline:auto}}
