@@ -1751,5 +1751,5 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   #intro .in-video{object-position:50% 22%}
   #intro .in-shade{background:linear-gradient(90deg,rgba(20,14,10,0) 35%,rgba(30,20,14,.78) 100%),linear-gradient(180deg,rgba(20,14,10,.6) 0%,rgba(20,14,10,.15) 25%,rgba(20,14,10,.55) 100%)}
   #intro .in-logo{top:34px;right:54px;width:260px}
-  #intro .in-copy{right:64px;bottom:auto;top:50%;transform:translateY(-50%);width:520px}
+  #intro .in-copy{right:64px;top:auto;bottom:48px;transform:none;width:520px}
 }
