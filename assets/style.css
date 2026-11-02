@@ -1655,8 +1655,40 @@ footer .fcols>div:first-child .logo.foot{display:inline-flex;justify-content:cen
 footer .fcols>div:first-child p{margin-left:auto;margin-right:auto}
 footer .fcols>div:first-child .soc{justify-content:center}
 /* carte: popup d'adresse centrée, sans coupure */
-.leaflet-popup-content{text-align:center;width:auto!important;max-width:230px}
+.leaflet-popup-content{text-align:center;width:auto!important;min-width:210px;max-width:250px}
 /* photo produits: ratio 4/3 d'origine, jamais coupée */
 #produits-cta .pcta::after{top:50%;bottom:auto;height:auto;aspect-ratio:4/3;transform:translateY(-50%);background-size:cover;background-position:center}
 @media (max-width:760px){#produits-cta .pcta{padding-top:calc((100vw - 32px)*.75 + 36px)}#produits-cta .pcta::after{top:0;transform:none;width:100%;height:auto;aspect-ratio:4/3;background-position:center}}
 @media (min-width:761px){#produits-cta .pcta{padding-right:50%}#produits-cta .pcta::after{width:47%;border-radius:80px 0 0 80px}}
+
+/* --- mobile: lisibilité, centrage, espacements --- */
+@media (max-width:700px){
+  section{padding-top:44px!important;padding-bottom:44px!important}
+  #apropos{padding-top:24px!important}
+  #avis{padding-bottom:28px!important}
+  #contact{padding-top:24px!important}
+  #formations{padding-bottom:28px!important}
+  /* photos À propos: jamais coupées par le texte */
+  #apropos .trio.two{margin-bottom:8px!important;padding-bottom:0!important}
+  #apropos .trio.two{top:auto!important;position:relative!important}
+  #apropos .trio.two .pic{object-fit:contain!important}
+  #apropos .split>div:last-child{background:transparent!important}
+  /* centrage des textes */
+  .kicker,section h2,.lead,.abtag,#apropos .split>div:last-child>p,.pcta,.pcta p,.pcta h2,.form2 h2,.form2 .lead,.form2 .kicker{text-align:center!important}
+  .kicker,.pcta .kicker{justify-content:center}
+  .pcta .kicker::before{display:none}
+  .chips{justify-content:center}
+  #apropos .stats{justify-content:center;text-align:center}
+  /* boutons: texte centré, plus lisible */
+  .btn,.btn.cta-shine,.btn.ghost,.btns .btn{justify-content:center!important;text-align:center!important;font-size:1rem!important;line-height:1.3}
+  .pcta .btns,.btns,.h2btns,.estcta{justify-content:center!important}
+  .pcta .btn{width:100%;max-width:340px}
+  /* polices plus grandes */
+  body{font-size:17px}
+  p,.lead,li{font-size:1.04rem;line-height:1.65}
+  .hstats span{font-size:.72rem!important;letter-spacing:.04em}
+  .hstats b{font-size:1.3rem!important}
+  .chips span{font-size:.85rem!important}
+  .timeline span,.stats span{font-size:.95rem!important}
+  footer{font-size:1rem}footer a{font-size:1rem}
+}
