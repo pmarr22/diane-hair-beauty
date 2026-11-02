@@ -1645,3 +1645,17 @@ footer .logo.foot{background:transparent;padding:0;border-radius:0}
 footer .logo.foot .logoimg{background:transparent;height:78px;width:auto}
 @media (max-width:760px){.pcta{padding:318px 24px 32px 30px}.pcta::after{height:290px;background-position:center 18%}#produits-cta .pcta::after{background-position:center}}
 .tp-main #produits{order:1}.tp-main #kit{order:9}.tp-cat{scroll-margin-top:150px}
+
+/* --- ajustes mobile/web --- */
+/* menu mobile: sous-menus lisibles */
+@media (max-width:900px){nav.main .ddm a{color:#f1f1f1;padding:9px 12px}nav.main .ddm{opacity:1}}
+/* footer: logo centré */
+footer .fcols>div:first-child{text-align:center}
+footer .fcols>div:first-child .logo.foot{display:inline-flex;justify-content:center}
+footer .fcols>div:first-child p{margin-left:auto;margin-right:auto}
+footer .fcols>div:first-child .soc{justify-content:center}
+/* carte: popup d'adresse centrée, sans coupure */
+.leaflet-popup-content{text-align:center;width:auto!important;max-width:230px}
+/* photo produits: ratio 4/3 d'origine, jamais coupée */
+#produits-cta .pcta::after{top:50%;bottom:auto;height:auto;aspect-ratio:4/3;transform:translateY(-50%);background-size:cover;background-position:center}
+@media (max-width:760px){#produits-cta .pcta{padding-top:calc((100vw - 32px)*.75 + 36px)}#produits-cta .pcta::after{top:0;transform:none;width:100%;height:auto;aspect-ratio:4/3;background-position:center}}
