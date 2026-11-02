@@ -1692,3 +1692,15 @@ footer .fcols>div:first-child .soc{justify-content:center}
   .timeline span,.stats span{font-size:.95rem!important}
   footer{font-size:1rem}footer a{font-size:1rem}
 }
+
+/* logo Formation (fond transparent) */
+.form2 h2.flogo{margin:0 0 8px;line-height:0;text-align:center}
+.form2 h2.flogo img{display:block;width:min(280px,70%);height:auto;margin:0 auto}
+@media (min-width:701px){.form2 h2.flogo img{width:min(300px,100%)}}
+/* À propos: montage photo uniquement sur mobile */
+#apropos .trio.two .mont{display:none}
+@media (max-width:700px){
+  #apropos .trio.two .pic{display:none!important}
+  #apropos .trio.two{display:block!important;margin-bottom:0!important}
+  #apropos .trio.two .mont{display:block;width:100%;max-width:420px;height:auto;margin:0 auto;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.14)}
+}
