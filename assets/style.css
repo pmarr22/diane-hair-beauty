@@ -1641,3 +1641,5 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 .sb .paybtn{margin-top:4px}
 .hero{order:-9}
 nav.main,nav.main a,.ddt,.ddm a,.btn,button{font-family:'Raleway',var(--sans);font-weight:600;letter-spacing:.02em}
+footer .logo.foot{background:transparent;padding:0;border-radius:0}
+footer .logo.foot .logoimg{background:transparent;height:78px;width:auto}
