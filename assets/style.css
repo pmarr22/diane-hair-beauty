@@ -1643,3 +1643,4 @@ nav.main .ddm a:hover{color:var(--gold);background:rgba(255,255,255,.06)}
 nav.main,nav.main a,.ddt,.ddm a,.btn,button{font-family:'Raleway',var(--sans);font-weight:600;letter-spacing:.02em}
 footer .logo.foot{background:transparent;padding:0;border-radius:0}
 footer .logo.foot .logoimg{background:transparent;height:78px;width:auto}
+@media (max-width:760px){.pcta{padding:318px 24px 32px 30px}.pcta::after{height:290px;background-position:center 18%}#produits-cta .pcta::after{background-position:center}}
