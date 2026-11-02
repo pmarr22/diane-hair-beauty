@@ -1715,4 +1715,7 @@ footer .fcols>div:first-child .soc{justify-content:center}
   .hstats span{font-size:.8rem!important;letter-spacing:.02em!important;line-height:1.25;white-space:normal;text-align:center}
   .hstats li{gap:6px;padding:0 6px}
 }
-.form2>div:first-child{text-align:center}.form2 .sub{text-align:center}.form2 h2.flogo img,#formations .flogo img{width:min(170px,50%)!important;height:auto;margin:0 auto}.form2 .fphoto{margin-inline:auto}
+.form2>div:first-child{text-align:center}.form2 .sub{text-align:center}.form2 h2.flogo img,#formations .flogo img{width:min(220px,60%)!important;height:auto;margin:0 auto}.form2 .fphoto{margin-inline:auto}
+
+/* Homme & enfant: photo de Diane coupant les cheveux d'un enfant */
+.hm-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
