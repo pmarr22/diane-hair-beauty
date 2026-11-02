@@ -1720,3 +1720,4 @@ footer .fcols>div:first-child .soc{justify-content:center}
 /* Homme & enfant: photo de Diane coupant les cheveux d'un enfant */
 .hm-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
 nav.main,nav.main a,.ddt,.ddm a,.btn,button{font-family:var(--sans);font-weight:600;letter-spacing:.01em}nav.main a,.ddt,.ddm a,.btn{font-size:calc(1em + 1.5px)}
+html{font-size:112.5%}.pcard small{font-size:.75rem}.pcard span{font-size:.95rem}.pcard u{font-size:.9rem}.ptabs button{font-size:.85rem}.note{font-size:.95rem}
