@@ -1659,3 +1659,4 @@ footer .fcols>div:first-child .soc{justify-content:center}
 /* photo produits: ratio 4/3 d'origine, jamais coupée */
 #produits-cta .pcta::after{top:50%;bottom:auto;height:auto;aspect-ratio:4/3;transform:translateY(-50%);background-size:cover;background-position:center}
 @media (max-width:760px){#produits-cta .pcta{padding-top:calc((100vw - 32px)*.75 + 36px)}#produits-cta .pcta::after{top:0;transform:none;width:100%;height:auto;aspect-ratio:4/3;background-position:center}}
+@media (min-width:761px){#produits-cta .pcta{padding-right:50%}#produits-cta .pcta::after{width:47%;border-radius:80px 0 0 80px}}
