@@ -1644,3 +1644,4 @@ nav.main,nav.main a,.ddt,.ddm a,.btn,button{font-family:'Raleway',var(--sans);fo
 footer .logo.foot{background:transparent;padding:0;border-radius:0}
 footer .logo.foot .logoimg{background:transparent;height:78px;width:auto}
 @media (max-width:760px){.pcta{padding:318px 24px 32px 30px}.pcta::after{height:290px;background-position:center 18%}#produits-cta .pcta::after{background-position:center}}
+.tp-main #produits{order:1}.tp-main #kit{order:9}.tp-cat{scroll-margin-top:150px}
