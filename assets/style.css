@@ -1765,3 +1765,4 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
 #intro .in-slogan,#intro .in-sign,#intro .in-tag{text-shadow:0 2px 14px rgba(0,0,0,.65),0 0 3px rgba(0,0,0,.35)}
 #intro .in-copy{isolation:isolate}
 #intro .in-copy::before{content:"";position:absolute;inset:-40px -50px -30px;z-index:-1;background:radial-gradient(ellipse at center,rgba(25,17,12,.55),rgba(25,17,12,.28) 55%,transparent 75%);pointer-events:none}
+@media (max-width:700px){.hero .btns{flex-direction:column;align-items:center;gap:12px}.hero .btns .btn{width:100%;max-width:320px;justify-content:center;text-align:center}}
