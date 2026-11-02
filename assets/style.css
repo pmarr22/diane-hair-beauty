@@ -1753,3 +1753,10 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   #intro .in-logo{top:34px;right:54px;width:260px}
   #intro .in-copy{right:64px;top:auto;bottom:48px;transform:none;width:520px}
 }
+
+/* Entrée: vidéo seule (sans logo), puis texte d'accueil centré sans photo */
+.hero .wrap{grid-template-columns:1fr!important;max-width:860px;margin-inline:auto;text-align:center}
+.hero .wrap>div{margin-inline:auto}
+.hero .wrap>div p,.hero .wrap>div .lead{margin-inline:auto!important;text-align:center!important;max-width:640px}
+.hero .wrap>div .btns{justify-content:center!important}
+.hero .hstats{margin-inline:auto}
