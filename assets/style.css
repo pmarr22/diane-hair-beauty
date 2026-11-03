@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap');
 :root{
   --black:#0a0a0a; --ink:#141414; --white:#ffffff; --grey:#f3f3f3; --line:#e4e4e4;
@@ -2000,3 +2001,8 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   img.pic{max-width:100%;height:auto}
 }
 @media (max-width:900px){.fphoto{max-width:100%}.fphoto .pic{width:100%!important;max-width:100%!important;height:auto}}
+/* intro video: coins propres + slogan élégant */
+.introwrap #intro .in-video{border-radius:inherit!important;clip-path:inset(0 round inherit);transform:translateZ(0)}
+@media (max-width:900px){.introwrap #intro .in-video{border-radius:22px!important}.introwrap #intro .in-copy{margin-top:-1px}}
+.introwrap #intro .in-slogan{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif!important;font-weight:600;letter-spacing:.01em;line-height:1.12}
+.introwrap #intro .in-slogan em{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif!important;font-style:italic;font-weight:500;letter-spacing:.02em}
