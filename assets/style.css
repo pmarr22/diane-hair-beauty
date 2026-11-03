@@ -1825,7 +1825,7 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
 .introwrap #intro .in-glow{display:none}
 @media (min-width:901px){
   .introwrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:clamp(32px,4.5vw,84px);align-items:center;padding:clamp(28px,3.6vw,56px) max(24px,calc((100% - 1380px)/2))}
-  .introwrap #intro{grid-column:2;grid-row:1;position:relative;height:auto!important;min-height:0!important;aspect-ratio:2922/2160;border-radius:28px;box-shadow:0 30px 70px rgba(60,40,10,.28),0 0 0 8px rgba(255,255,255,.6)}
+  .introwrap #intro{grid-column:2;grid-row:1;position:relative;height:auto!important;min-height:0!important;aspect-ratio:2922/2160;border-radius:28px;box-shadow:0 30px 70px rgba(0,0,0,.16),0 0 0 8px rgba(255,255,255,.6)}
   .introwrap #intro .in-video{position:absolute!important;inset:0;left:0!important;width:100%!important;height:100%!important}
   .introwrap #intro .in-shade{background:linear-gradient(180deg,rgba(20,14,10,0) 52%,rgba(20,14,10,.5) 100%)!important}
   .introwrap #intro .in-copy{left:auto!important;right:clamp(16px,2vw,28px)!important;top:auto!important;bottom:clamp(14px,2vw,26px)!important;transform:none!important;width:min(45%,340px)!important}
@@ -1855,7 +1855,7 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
 }
 @media (max-width:900px){
   .introwrap{padding:16px 16px 4px}
-  .introwrap #intro{height:auto!important;min-height:0!important;position:relative;border-radius:22px;box-shadow:0 18px 40px rgba(60,40,10,.2);background:#fff}
+  .introwrap #intro{height:auto!important;min-height:0!important;position:relative;border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.1);background:#fff}
   .introwrap #intro .in-video{position:relative!important;inset:auto!important;display:block;width:100%!important;height:auto!important;aspect-ratio:2922/2160;background:#000}
   .introwrap #intro .in-shade{display:none}
   .introwrap #intro .in-copy{position:static!important;transform:none!important;width:auto!important;padding:16px 14px 20px;background:#fff}
@@ -1893,3 +1893,71 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   .introwrap .hero .btns .btn{width:100%;max-width:340px;justify-content:center;text-align:center}
 }
 .introwrap .hero .btns .btn{min-height:52px;padding-top:0!important;padding-bottom:0!important;display:inline-flex;align-items:center;justify-content:center;line-height:1.2}
+
+/* Contact (desktop): même format, taille réduite */
+@media (min-width:901px){
+  #contact.ctc{padding-top:48px!important;padding-bottom:48px!important}
+  #contact h2{font-size:clamp(2rem,2.8vw,2.6rem)!important;line-height:1.15}
+  #contact .center .lead{font-size:1.05rem!important;line-height:1.6!important;margin-top:10px}
+  #contact .ctgrid,#contact .ctquick,#contact .prac{max-width:1000px;margin-left:auto;margin-right:auto}
+  #contact .ctgrid{margin-top:26px;gap:28px}
+  #contact .mapcard{min-height:420px}
+  #contact .mapbar a,#contact .mapbar button{padding:7px 13px;font-size:.76rem}
+  #contact .ccard{padding:18px 22px}
+  #contact .ccard h3{margin-bottom:10px;font-size:.7rem}
+  #contact .ccard h3 svg{width:17px;height:17px}
+  #contact .addr{font-size:1.2rem!important;line-height:1.3}
+  #contact .ccard .mut{font-size:.92rem!important;line-height:1.55!important;margin-top:6px}
+  #contact .openbadge{font-size:.8rem!important;padding:4px 12px;margin-bottom:6px}
+  #contact .hrs li{padding:5px 12px;font-size:.88rem!important;line-height:1.4}
+  #contact .ctquick{margin-top:18px;gap:8px}
+  #contact .qb{padding:8px 15px;font-size:.8rem}
+  #contact .qb span{font-size:.85rem!important}
+  #contact .qb svg{width:15px;height:15px}
+  #contact .ctquick .btn{padding:10px 20px;font-size:.88rem}
+  #contact .prac{margin-top:16px;gap:10px}
+  #contact .prac .pt{padding:14px 12px}
+  #contact .prac b{font-size:.95rem!important}
+  #contact .prac small{font-size:.76rem!important}
+}
+@media (min-width:901px){#contact .leaflet-popup-content,#contact .leaflet-popup-content a{font-size:.85rem!important;line-height:1.45}#contact .leaflet-popup-content{margin:10px 14px;min-width:170px}}
+
+/* Mobile: cartes d'infos pratiques (Parking, Transports, Langues...) lisibles, alignées, sans coupure */
+@media (max-width:700px){
+  .prac{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .prac .pt{display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:6px;padding:14px 8px 16px!important;min-width:0}
+  .prac .pt i{width:38px!important;height:38px!important;margin:0}
+  .prac .pt i svg{width:18px!important;height:18px!important}
+  .prac .pt small{font-size:.68rem!important;letter-spacing:.07em!important;line-height:1.25;max-width:100%;overflow-wrap:anywhere;min-height:1.3em}
+  .prac .pt b{font-size:.9rem!important;font-weight:500;line-height:1.35;overflow-wrap:normal;hyphens:manual;text-wrap:balance}
+  .prac .pt>div{min-width:0;width:100%}
+}
+/* Mobile: faixa de números do topo, textos menores e sem quebra feia */
+@media (max-width:700px){
+  .hero .hstats li{padding:0 4px!important;gap:5px!important;min-width:0}
+  .hero .hstats b{font-size:1.2rem!important;white-space:nowrap}
+  .hero .hstats span{font-size:.68rem!important;letter-spacing:0!important;line-height:1.25!important;overflow-wrap:break-word}
+  .hero .hstats li i{width:34px!important;height:34px!important}
+}
+
+/* Entrée: fond blanc pur, ombres neutres (sans teinte beige) */
+.introwrap,.introwrap .hero,.introwrap #intro .in-copy{background:#fff!important}
+.introwrap #intro{box-shadow:0 10px 28px rgba(0,0,0,.10)!important}
+@media (min-width:901px){.introwrap #intro{box-shadow:0 22px 50px rgba(0,0,0,.14),0 0 0 8px #fff!important}}
+.introwrap .hero .btn.cta-shine{box-shadow:0 6px 16px rgba(0,0,0,.12)!important}
+.introwrap .hero .hstats{box-shadow:0 4px 14px rgba(0,0,0,.05)!important}
+@media (max-width:900px){.introwrap #intro{box-shadow:none!important}.introwrap .hero .hstats{box-shadow:none!important}}
+
+/* Entrée: pas de boîte grise derrière le slogan; coins du cadre vidéo propres */
+@media (min-width:901px){
+  .introwrap #intro .in-copy{background:transparent!important}
+  .introwrap #intro .in-copy::before{display:none!important}
+  .introwrap #intro .in-slogan,.introwrap #intro .in-sign,.introwrap #intro .in-tag{text-shadow:0 1px 10px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.4)}
+}
+.introwrap #intro{background:#fff!important;clip-path:inset(0 round 28px);-webkit-clip-path:inset(0 round 28px)}
+.introwrap #intro .in-video{border-radius:27px;background:transparent!important}
+@media (max-width:900px){.introwrap #intro{clip-path:inset(0 round 22px);-webkit-clip-path:inset(0 round 22px)}.introwrap #intro .in-video{border-radius:21px 21px 0 0}}
+@media (min-width:901px){
+  .introwrap #intro .in-slogan em{background:none!important;filter:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:#f7df94!important;-webkit-text-fill-color:#f7df94!important}
+  .introwrap #intro .in-slogan,.introwrap #intro .in-sign,.introwrap #intro .in-tag{filter:none!important;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.7)}
+}
