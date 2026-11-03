@@ -2008,3 +2008,5 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
 .introwrap #intro .in-slogan em{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif!important;font-style:italic;font-weight:500;letter-spacing:.02em}
 /* titres: la partie dorée passe entière à la ligne */
 section h2 em.g,.tp-hero h1 em.g{display:inline-block}
+/* esthétique: photo alignée en haut (plus de vide au-dessus) */
+@media (min-width:901px){.estgrid{align-items:start!important}.estgrid .estm{position:sticky!important;top:110px}}
