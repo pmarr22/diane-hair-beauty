@@ -1882,3 +1882,14 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   .introwrap .hero .wrap{padding-bottom:10px!important}
   #galerie{padding-top:8px!important}
 }
+
+/* Boutons de l'entrée: alignés, même hauteur, texte centré */
+@media (min-width:901px){
+  .introwrap .hero .wrap>div .btns{display:flex!important;flex-wrap:wrap;justify-content:center!important;align-items:stretch;gap:10px}
+  .introwrap .hero .btns .btn{flex:1 1 auto;justify-content:center;text-align:center;white-space:nowrap;padding:12px 14px;font-size:.86rem}
+}
+@media (max-width:900px){
+  .introwrap .hero .btns{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .introwrap .hero .btns .btn{width:100%;max-width:340px;justify-content:center;text-align:center}
+}
+.introwrap .hero .btns .btn{min-height:52px;padding-top:0!important;padding-bottom:0!important;display:inline-flex;align-items:center;justify-content:center;line-height:1.2}
