@@ -1961,3 +1961,42 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   .introwrap #intro .in-slogan em{background:none!important;filter:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:#f7df94!important;-webkit-text-fill-color:#f7df94!important}
   .introwrap #intro .in-slogan,.introwrap #intro .in-sign,.introwrap #intro .in-tag{filter:none!important;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.7)}
 }
+
+/* ===== Mobile: rien ne dépasse de l'écran (colonnes qui rétrécissent, textes qui passent à la ligne) ===== */
+@media (max-width:900px){
+  .wrap.lg,.svlayout{grid-template-columns:minmax(0,1fr)!important}
+  .wrap.lg>*,.svlayout>*,.svpanels,.svpanel,.svmedia,.svtxt,.lg-body,.lg-toc,.archwrap{min-width:0;max-width:100%}
+  .pic,.arch img{max-width:100%}
+  /* onglets des prestations: 2 colonnes, textes qui se replient */
+  .svtabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;width:100%;overflow:visible!important;justify-content:stretch}
+  .svtabs button{min-width:0;white-space:normal;text-align:left;line-height:1.2;padding:8px 10px 8px 8px!important;font-size:.86rem!important;justify-content:flex-start;align-items:center}
+  .svtabs button .ti{flex:none}
+  .svtabs button>*:not(.ti){min-width:0;overflow-wrap:anywhere}
+  /* pages légales */
+  .lg-toc a{white-space:normal;max-width:100%}
+  .lg-s p,.lg-s li,.lg-s a{overflow-wrap:anywhere}
+  .lg-s h2{justify-content:flex-start!important;text-align:left!important;flex-wrap:nowrap;align-items:baseline}
+  .lg-s h2::after,.lg-s h2::before{display:none!important}
+  /* liens rapides de contact */
+  .ctquick .qb{max-width:100%;min-width:0;white-space:normal}
+  .ctquick .qb span{min-width:0;overflow-wrap:anywhere;text-align:left}
+}
+/* Mobile: boutons flottants ronds et alignés (le texte "Réserver" ne doit plus être coupé) */
+@media (max-width:900px){
+  .fab{right:12px;bottom:12px;gap:8px;justify-items:end}
+  .fab .ai,.fab .wa,.fab .rs{width:44px!important;height:44px!important;padding:0!important;border-radius:50%!important;justify-content:center;align-items:center;gap:0!important;font-size:0!important;overflow:hidden}
+  .fab .ai svg,.fab .wa svg,.fab .rs svg{width:21px!important;height:21px!important;flex:none}
+}
+/* Mobile: section Formation, boutons et note centrés, flèche toujours collée au texte */
+@media (max-width:900px){
+  .form2 .btns{flex-direction:column;align-items:center!important;justify-content:center;gap:12px;width:100%}
+  .form2 .btns .btn{width:100%;max-width:340px;justify-content:center;text-align:center;white-space:normal;line-height:1.25}
+  .form2 .btns .more{display:block;width:100%;max-width:340px;text-align:center;letter-spacing:.08em;line-height:1.5;white-space:normal;padding:6px 0}
+  .form2 .fnote{justify-content:center;text-align:center;padding-left:0}
+  .form2 .fnote::before{display:none}
+}
+@media (max-width:900px){
+  .btn{max-width:100%;white-space:normal;text-align:center;line-height:1.25}
+  img.pic{max-width:100%;height:auto}
+}
+@media (max-width:900px){.fphoto{max-width:100%}.fphoto .pic{width:100%!important;max-width:100%!important;height:auto}}
