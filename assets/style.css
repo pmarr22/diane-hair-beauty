@@ -2006,3 +2006,5 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
 @media (max-width:900px){.introwrap #intro .in-video{border-radius:22px!important}.introwrap #intro .in-copy{margin-top:-1px}}
 .introwrap #intro .in-slogan{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif!important;font-weight:600;letter-spacing:.01em;line-height:1.12}
 .introwrap #intro .in-slogan em{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif!important;font-style:italic;font-weight:500;letter-spacing:.02em}
+/* titres: la partie dorée passe entière à la ligne */
+section h2 em.g,.tp-hero h1 em.g{display:inline-block}
