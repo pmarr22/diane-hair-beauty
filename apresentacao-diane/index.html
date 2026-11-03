@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Site Diane Hair Beauty · Apresentação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#14120f;--black:#0a0a0c;--cream:#faf6ec;--sand:#f1e9d6;--line:#e6dcc3;--gold:#b8892a;--gold2:#e2b84a;--gold3:#f6e6a6;--muted:#6b6455;--ok:#2f7d4f;--serif:'Playfair Display',Georgia,serif;--sans:'Poppins',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;text-wrap:balance}
+em{color:var(--gold);font-weight:500}
+.kick{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* hero */
+.hero{position:relative;background:var(--black);color:#f6f1e4;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:url('../assets/intro-poster-v3.jpg') right center/cover no-repeat;opacity:.55;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,#0a0a0c 22%,rgba(10,10,12,.86) 48%,rgba(10,10,12,.25) 100%),radial-gradient(60% 80% at 15% 30%,rgba(226,184,74,.16),transparent 70%);z-index:-1}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+.brand{font-family:var(--serif);letter-spacing:.2em;text-transform:uppercase;font-size:1rem;color:var(--gold2)}
+.lang{display:flex;gap:3px;border:1px solid rgba(226,184,74,.35);border-radius:99px;padding:3px;background:rgba(0,0,0,.35)}
+.lang button{font:600 .78rem var(--sans);border:0;background:none;color:#e9e1cc;padding:6px 15px;border-radius:99px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--gold2);color:#14120f}
+.hero-in{padding:56px 0 64px;max-width:660px}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);margin:14px 0 20px}
+.hero h1 em{color:var(--gold2);display:block}
+.hero p.lead{font-size:1.1rem;color:#d8d0bb;max-width:46ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:99px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.g{background:linear-gradient(135deg,var(--gold3),var(--gold2) 55%,#c9982e);color:#14120f;box-shadow:0 10px 30px rgba(226,184,74,.25)}
+.btn.o{border:1px solid rgba(246,241,228,.4);color:#f6f1e4}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(226,184,74,.25);background:rgba(10,10,12,.6);backdrop-filter:blur(6px)}
+.stats div{padding:22px 12px;text-align:center;border-left:1px solid rgba(226,184,74,.15)}
+.stats div:first-child{border-left:0}
+.stats b{display:block;font-family:var(--serif);font-size:2.3rem;color:var(--gold2);line-height:1}
+.stats span{font-size:.8rem;color:#cfc7b2}
+
+section{padding:84px 0 0}
+.sh{max-width:640px;margin-bottom:38px}
+.sh h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:10px 0 14px}
+.sh p{color:var(--muted)}
+
+/* live preview */
+.live{position:relative;padding-bottom:40px}
+.stage{position:relative;max-width:1020px;margin:0 auto}
+.browser{background:#1b1814;border-radius:14px;box-shadow:0 40px 80px rgba(20,18,15,.28);overflow:hidden;width:88%}
+.bt{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#26221c}
+.bt i{width:10px;height:10px;border-radius:50%;background:#4a443a}
+.bt span{margin-left:10px;font-size:.72rem;color:#b9b09a;background:#1b1814;border-radius:99px;padding:3px 14px}
+.vp{position:relative;overflow:hidden;background:#fff}
+.vp iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0}
+.browser .vp{aspect-ratio:1280/760}
+.phone{position:absolute;right:0;bottom:-30px;width:23%;background:#14120f;border-radius:30px;padding:8px;box-shadow:0 30px 60px rgba(20,18,15,.35)}
+.phone .vp{border-radius:23px;aspect-ratio:390/800}
+.tag{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:56px;color:var(--muted);font-size:.88rem}
+.tag a{color:var(--gold);font-weight:600}
+
+/* features */
+.fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.f{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px 22px;transition:transform .25s,box-shadow .25s}
+.f:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(184,137,42,.14)}
+.f .ck{width:38px;height:38px;border-radius:50%;background:var(--sand);color:var(--ok);display:grid;place-items:center;font-weight:700;margin-bottom:16px}
+.f h3{font-size:1.28rem;margin-bottom:6px}
+.f p{color:var(--muted);font-size:.93rem}
+.f .vs{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:.76rem;color:#9a917c;letter-spacing:.04em}
+.f .vs b{color:var(--gold);font-weight:600}
+
+/* photos */
+.dark{background:var(--black);color:#f6f1e4;margin-top:84px;padding:84px 0}
+.dark .sh p{color:#c8c0ab}.dark .sh h2 em{color:var(--gold2)}
+.mos{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:10px}
+.mos img{width:100%;height:100%;object-fit:cover;border-radius:12px;filter:saturate(1.05);transition:transform .4s}
+.mos div{overflow:hidden;border-radius:12px}
+.mos div:hover img{transform:scale(1.06)}
+.mos .a{grid-column:span 2;grid-row:span 2}.mos .b{grid-column:span 2}.mos .c{grid-row:span 2}
+.prods{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:10px}
+.prods div{background:#fff;border-radius:12px;aspect-ratio:1;display:grid;place-items:center;padding:12px}
+.prods img{max-height:100%;object-fit:contain}
+.cap{margin-top:14px;font-size:.85rem;color:#a79f8a}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;position:relative}
+.st{padding:0 22px 0 0;position:relative}
+.st::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--black);color:var(--gold2);font-family:var(--serif);font-size:1.2rem;margin-bottom:18px;position:relative;z-index:1}
+.st::after{content:"";position:absolute;left:46px;right:0;top:22px;height:1px;background:var(--line)}
+.st:last-child::after{display:none}
+.st h3{font-size:1.2rem;margin-bottom:6px}
+.st p{font-size:.9rem;color:var(--muted)}
+
+/* closing */
+.end{margin-top:90px;background:linear-gradient(135deg,#14120f,#0a0a0c);color:#f6f1e4;text-align:center;padding:84px 24px;position:relative;overflow:hidden}
+.end::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 70% at 50% 0,rgba(226,184,74,.2),transparent 70%)}
+.end h2{position:relative;font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
+.end h2 em{color:var(--gold2)}
+.end p{position:relative;color:#d0c8b3;max-width:52ch;margin:0 auto 28px}
+.end .btn{position:relative}
+.foot{background:#050505;color:#9d957f;text-align:center;font-size:.8rem;padding:20px}
+
+@media (max-width:820px){
+ .stats{grid-template-columns:repeat(3,1fr)}.stats div:nth-child(4){border-left:0}
+ .hero::before{opacity:.35}
+ .browser{width:100%}.phone{position:relative;width:46%;margin:-60px auto 0;right:auto;bottom:auto}
+ .mos{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.mos .a{grid-column:span 2}.mos .b{grid-column:span 2}
+ .prods{grid-template-columns:repeat(3,1fr)}
+ .steps{grid-template-columns:1fr;gap:26px}.st::after{display:none}
+ section{padding-top:64px}.dark{padding:64px 0;margin-top:64px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="w">
+  <div class="bar"><div class="brand">Diane Hair Beauty</div>
+   <div class="lang" role="group" aria-label="Idioma"><button id="b-pt" aria-pressed="true" data-l="pt">PT</button><button id="b-fr" aria-pressed="false" data-l="fr">FR</button></div></div>
+  <div class="hero-in">
+   <div class="kick" data-fr="Le Cannet · Cannes">Le Cannet · Cannes</div>
+   <h1 data-fr="Votre site,<em>prêt à l'emploi</em>">Seu site,<em>pronto para usar</em></h1>
+   <p class="lead" data-fr="Tout ce qui a été créé pour le salon, en un coup d'œil : trois langues, galerie 3D, vitrine de produits, assistant virtuel et plus encore.">Tudo o que foi criado para o salão, num só olhar: três idiomas, galeria 3D, vitrine de produtos, assistente virtual e muito mais.</p>
+   <div class="cta"><a class="btn g" href="../" target="_blank" rel="noopener" data-fr="Ouvrir le site en direct">Abrir o site ao vivo</a><a class="btn o" href="#ja-tem" data-fr="Ce que vous avez déjà">O que você já tem</a></div>
+  </div>
+ </div>
+ <div class="stats">
+  <div><b>21</b><span data-fr="pages en ligne">páginas no ar</span></div>
+  <div><b>3</b><span data-fr="langues">idiomas</span></div>
+  <div><b>130+</b><span data-fr="photos traitées">fotos tratadas</span></div>
+  <div><b>27</b><span data-fr="produits en vitrine">produtos na vitrine</span></div>
+  <div><b>4</b><span data-fr="vidéos">vídeos</span></div>
+ </div>
+</header>
+
+<section class="live" id="ao-vivo"><div class="w">
+ <div class="sh"><div class="kick" data-fr="En direct">Ao vivo</div>
+  <h2 data-fr="Voilà votre site, <em>tel qu'il est</em>">Este é o seu site, <em>do jeito que está</em></h2>
+  <p data-fr="Ce que vous voyez ci-dessous est le vrai site, sur ordinateur et sur mobile. Vous pouvez naviguer dedans." >O que você vê abaixo é o site de verdade, no computador e no celular. Dá para navegar dentro dele.</p></div>
+ <div class="stage">
+  <div class="browser"><div class="bt"><i></i><i></i><i></i><span>dianehairbeauty.fr</span></div>
+   <div class="vp" id="vpd"><iframe id="fd" src="../" loading="lazy" title="Site no computador" width="1280" height="760"></iframe></div></div>
+  <div class="phone"><div class="vp" id="vpm"><iframe id="fm" src="../" loading="lazy" title="Site no celular" width="390" height="800"></iframe></div></div>
+ </div>
+ <p class="tag"><span data-fr="Pour voir en grand :">Para ver em tela cheia:</span> <a href="../" target="_blank" rel="noopener" data-fr="ouvrir le site">abrir o site</a></p>
+</div></section>
+
+<section id="ja-tem"><div class="w">
+ <div class="sh"><div class="kick" data-fr="Inclus">Incluído</div>
+  <h2 data-fr="Ce que vous avez <em>déjà</em>">O que você <em>já tem</em></h2>
+  <p data-fr="Comparé à un site simple fait à partir d'un modèle. Les points « option » sont en général payants à part.">Comparado a um site simples, feito a partir de um modelo pronto. Os itens "extra" costumam ser cobrados à parte.</p></div>
+ <div class="fg">
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Site en 3 langues">Site em 3 idiomas</h3><p data-fr="Français, portugais et anglais, avec changement par drapeau. Pour Cannes et la clientèle brésilienne.">Francês, português e inglês, com troca por bandeira. Para as clientes de Cannes e a clientela brasileira.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="option">extra</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Identité visuelle sur mesure">Identidade visual exclusiva</h3><p data-fr="Noir, blanc et or, vidéo d'ouverture avec Diane, logo et signature. Rien d'un modèle reconnaissable.">Preto, branco e dourado, vídeo de abertura com a Diane, logo e assinatura. Sem cara de modelo pronto.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="modèle">modelo</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Galerie photo en 3D">Galeria de fotos em 3D</h3><p data-fr="41 photos de réalisations qui tournent en anneau, au lieu d'une simple grille.">41 fotos de trabalhos girando em anel, em vez de uma simples grade.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="grille">grade</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Assistant virtuel">Assistente virtual</h3><p data-fr="Répond aux clientes sur les prix, les services et les extensions, même salon fermé.">Responde as clientes sobre preços, serviços e mega hair, mesmo com o salão fechado.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="option">extra</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Tarifs et promotions">Tabela de preços e promoções</h3><p data-fr="Plus de 80 prix organisés, offre −20 % en avant et bandeau d'annonce en haut du site.">Mais de 80 valores organizados, oferta de −20 % em destaque e faixa de aviso no topo.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="basique">básico</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Prestations par catégories">Serviços por categorias</h3><p data-fr="Lissage, couleur, extensions et diagnostic en onglets, avec photos.">Alisamento, coloração, extensões e diagnóstico em abas, com fotos.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="liste">lista</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Vitrine de produits">Vitrine de produtos</h3><p data-fr="27 produits Kérastase, L'Oréal, Color Wow, W3 Organic et produits brésiliens, avec filtre par marque.">27 produtos Kérastase, L'Oréal, Color Wow, W3 Organic e produtos brasileiros, com filtro por marca.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="option">extra</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Équipe partenaire du salon">Equipe parceira do salão</h3><p data-fr="Esthétique, ongles et maquillage permanent, avec le contact direct de chaque professionnelle.">Estética, unhas e maquiagem definitiva, com contato direto de cada profissional.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="option">extra</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Prêt pour Google">Preparado para o Google</h3><p data-fr="Informations du salon organisées pour apparaître dans les recherches locales (Le Cannet, Cannes).">Informações do salão organizadas para aparecer nas buscas locais (Le Cannet, Cannes).</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="option">extra</b></div></div>
+  <div class="f"><div class="ck">✓</div><h3 data-fr="Horaires et accès en direct">Horário e acesso em tempo real</h3><p data-fr="« Ouvert » ou « fermé » automatique, plan d'accès, boutons WhatsApp et réservation.">"Aberto" ou "fechado" automático, mapa, botões de WhatsApp e agendamento.</p><div class="vs"><span data-fr="Site simple :">Site simples:</span> <b data-fr="option">extra</b></div></div>
+ </div>
+</div></section>
+
+<div class="dark"><div class="w">
+ <div class="sh"><div class="kick" data-fr="Contenu">Conteúdo</div>
+  <h2 data-fr="Vos photos et vos produits, <em>mis en valeur</em>">Suas fotos e seus produtos, <em>em destaque</em></h2>
+  <p data-fr="Plus de 130 images retouchées et recadrées, et 27 fiches produit classées dans l'ordre que vous avez choisi.">Mais de 130 imagens tratadas e recortadas, e 27 fichas de produto na ordem que você escolheu.</p></div>
+ <div class="mos">
+  <div class="a"><img src="../assets/img/g-blond-miroir.webp" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/g2-cuivre.webp" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/g4-lisse-vert.webp" alt="" loading="lazy"></div>
+  <div class="c"><img src="../assets/img/res-balayage.webp" alt="" loading="lazy"></div>
+  <div class="b"><img src="../assets/img/diane-cabine.jpg" alt="" loading="lazy"></div>
+  <div class="c"><img src="../assets/img/g2-bordeaux.webp" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/g3-garcon.webp" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/res-boucles.webp" alt="" loading="lazy"></div>
+ </div>
+ <div class="prods">
+  <div><img src="../assets/img/o-chronologiste.jpg" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/o-nutritive.jpg" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/o-majirel.jpg" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/o-cw-dreamcoat.jpg" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/o-inoa.jpg" alt="" loading="lazy"></div>
+  <div><img src="../assets/img/o-genesis.jpg" alt="" loading="lazy"></div>
+ </div>
+ <p class="cap" data-fr="Kérastase · L'Oréal Professionnel · Color Wow · W3 Organic · produits brésiliens">Kérastase · L'Oréal Professionnel · Color Wow · W3 Organic · produtos brasileiros</p>
+</div></div>
+
+<section><div class="w">
+ <div class="sh"><div class="kick" data-fr="Les coulisses">Os bastidores</div>
+  <h2 data-fr="Le travail <em>derrière</em> le site">O trabalho <em>por trás</em> do site</h2>
+  <p data-fr="Pas seulement une mise en page : tout a été écrit, traduit, testé et ajusté avec vous.">Não é só um layout: tudo foi escrito, traduzido, testado e ajustado junto com você.</p></div>
+ <div class="steps">
+  <div class="st"><h3 data-fr="Création">Criação</h3><p data-fr="Identité, vidéo d'ouverture, pages, textes en 3 langues, ordinateur et mobile.">Identidade, vídeo de abertura, páginas, textos em 3 idiomas, computador e celular.</p></div>
+  <div class="st"><h3 data-fr="Contenu">Conteúdo</h3><p data-fr="130+ images retouchées, 27 fiches produit dans l'ordre choisi.">130+ imagens tratadas, 27 fichas de produto na ordem escolhida.</p></div>
+  <div class="st"><h3 data-fr="Ajustements">Ajustes</h3><p data-fr="Menu, pied de page, polices, offre −20 %, galerie, infos extensions : tout revu à votre demande.">Menu, rodapé, fontes, oferta −20 %, galeria, aviso de mega hair: tudo revisado a pedido.</p></div>
+  <div class="st"><h3 data-fr="Prêt">Pronto</h3><p data-fr="Le site fonctionne déjà. Il ne manque que de choisir le moment de le mettre à votre adresse.">O site já funciona. Falta só escolher o momento de colocá-lo no seu endereço.</p></div>
+ </div>
+</div></section>
+
+<div class="end">
+ <h2 data-fr="Prêt à <em>le mettre en ligne</em> ?">Pronta para <em>colocar no ar</em>?</h2>
+ <p data-fr="Vous gardez votre hébergement et votre nom de domaine actuels. La proposition détaillée est dans l'e-mail que vous avez reçu.">Você mantém sua hospedagem e seu domínio atuais. A proposta detalhada está no e-mail que você recebeu.</p>
+ <a class="btn g" href="../" target="_blank" rel="noopener" data-fr="Revoir le site">Rever o site</a>
+</div>
+<div class="foot">Muvoria Lab · hello@muvoria.fr · muvoria.fr</div>
+
+<script>
+(function(){
+ var els=[].slice.call(document.querySelectorAll('[data-fr]'));
+ els.forEach(function(e){e.setAttribute('data-pt',e.innerHTML)});
+ function set(l){els.forEach(function(e){e.innerHTML=e.getAttribute('data-'+l)});document.documentElement.lang=l;
+  ['pt','fr'].forEach(function(k){document.getElementById('b-'+k).setAttribute('aria-pressed',String(k===l))});try{localStorage.setItem('dl',l)}catch(x){}}
+ [].forEach.call(document.querySelectorAll('.lang button'),function(b){b.addEventListener('click',function(){set(b.getAttribute('data-l'))})});
+ var s='pt';try{s=localStorage.getItem('dl')||'pt'}catch(x){}
+ if(location.hash==='#fr')s='fr';if(s==='fr')set('fr');
+ function fit(){[['vpd','fd',1280],['vpm','fm',390]].forEach(function(a){var v=document.getElementById(a[0]),f=document.getElementById(a[1]);var k=v.clientWidth/a[2];f.style.transform='scale('+k+')';f.style.height=(v.clientHeight/k)+'px'})}
+ window.addEventListener('resize',fit);window.addEventListener('load',fit);fit();
+})();
+</script>
+</body></html>
