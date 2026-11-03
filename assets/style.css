@@ -1893,3 +1893,31 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
   .introwrap .hero .btns .btn{width:100%;max-width:340px;justify-content:center;text-align:center}
 }
 .introwrap .hero .btns .btn{min-height:52px;padding-top:0!important;padding-bottom:0!important;display:inline-flex;align-items:center;justify-content:center;line-height:1.2}
+
+/* Contact (desktop): même format, taille réduite */
+@media (min-width:901px){
+  #contact.ctc{padding-top:48px!important;padding-bottom:48px!important}
+  #contact h2{font-size:clamp(2rem,2.8vw,2.6rem)!important;line-height:1.15}
+  #contact .center .lead{font-size:1.05rem!important;line-height:1.6!important;margin-top:10px}
+  #contact .ctgrid,#contact .ctquick,#contact .prac{max-width:1000px;margin-left:auto;margin-right:auto}
+  #contact .ctgrid{margin-top:26px;gap:28px}
+  #contact .mapcard{min-height:420px}
+  #contact .mapbar a,#contact .mapbar button{padding:7px 13px;font-size:.76rem}
+  #contact .ccard{padding:18px 22px}
+  #contact .ccard h3{margin-bottom:10px;font-size:.7rem}
+  #contact .ccard h3 svg{width:17px;height:17px}
+  #contact .addr{font-size:1.2rem!important;line-height:1.3}
+  #contact .ccard .mut{font-size:.92rem!important;line-height:1.55!important;margin-top:6px}
+  #contact .openbadge{font-size:.8rem!important;padding:4px 12px;margin-bottom:6px}
+  #contact .hrs li{padding:5px 12px;font-size:.88rem!important;line-height:1.4}
+  #contact .ctquick{margin-top:18px;gap:8px}
+  #contact .qb{padding:8px 15px;font-size:.8rem}
+  #contact .qb span{font-size:.85rem!important}
+  #contact .qb svg{width:15px;height:15px}
+  #contact .ctquick .btn{padding:10px 20px;font-size:.88rem}
+  #contact .prac{margin-top:16px;gap:10px}
+  #contact .prac .pt{padding:14px 12px}
+  #contact .prac b{font-size:.95rem!important}
+  #contact .prac small{font-size:.76rem!important}
+}
+@media (min-width:901px){#contact .leaflet-popup-content,#contact .leaflet-popup-content a{font-size:.85rem!important;line-height:1.45}#contact .leaflet-popup-content{margin:10px 14px;min-width:170px}}
