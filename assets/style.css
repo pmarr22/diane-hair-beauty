@@ -1947,3 +1947,17 @@ nav.main a,nav.main .ddt{font-size:15.5px}nav.main .ddm a{font-size:15px}.hright
 .introwrap .hero .btn.cta-shine{box-shadow:0 6px 16px rgba(0,0,0,.12)!important}
 .introwrap .hero .hstats{box-shadow:0 4px 14px rgba(0,0,0,.05)!important}
 @media (max-width:900px){.introwrap #intro{box-shadow:none!important}.introwrap .hero .hstats{box-shadow:none!important}}
+
+/* Entrée: pas de boîte grise derrière le slogan; coins du cadre vidéo propres */
+@media (min-width:901px){
+  .introwrap #intro .in-copy{background:transparent!important}
+  .introwrap #intro .in-copy::before{display:none!important}
+  .introwrap #intro .in-slogan,.introwrap #intro .in-sign,.introwrap #intro .in-tag{text-shadow:0 1px 10px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.4)}
+}
+.introwrap #intro{background:#fff!important;clip-path:inset(0 round 28px);-webkit-clip-path:inset(0 round 28px)}
+.introwrap #intro .in-video{border-radius:27px;background:transparent!important}
+@media (max-width:900px){.introwrap #intro{clip-path:inset(0 round 22px);-webkit-clip-path:inset(0 round 22px)}.introwrap #intro .in-video{border-radius:21px 21px 0 0}}
+@media (min-width:901px){
+  .introwrap #intro .in-slogan em{background:none!important;filter:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:#f7df94!important;-webkit-text-fill-color:#f7df94!important}
+  .introwrap #intro .in-slogan,.introwrap #intro .in-sign,.introwrap #intro .in-tag{filter:none!important;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 14px rgba(0,0,0,.7)}
+}
