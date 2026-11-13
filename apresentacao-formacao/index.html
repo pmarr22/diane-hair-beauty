@@ -6,168 +6,253 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Plataforma de formação · Diane Hair Beauty · Proposta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@400;500;600;700&display=swap">
 <style>
-:root{--ink:#111;--black:#0a0a0a;--white:#fff;--soft:#f6f6f4;--line:#e6e6e6;--gold:#b8921f;--gold2:#d9b53f;--gold3:#efd77f;--muted:#666;--serif:'Playfair Display',Georgia,serif;--sans:'Poppins',system-ui,sans-serif}
+:root{--ink:#111;--black:#0a0a0a;--soft:#f6f6f4;--line:#e6e6e6;--gold:#b8921f;--gold2:#d9b53f;--gold3:#efd77f;--muted:#666;--serif:'Playfair Display',Georgia,serif;--sans:'Poppins',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 .w{max-width:1120px;margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;text-wrap:balance}
-em{color:var(--gold);font-style:italic;font-weight:500}
-.kick{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
-section{padding:72px 0}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;text-wrap:balance}
+em{font-style:italic;font-weight:500;background:linear-gradient(100deg,#b8921f 20%,#f3dc86 45%,#b8921f 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:-220% 0}}
+.kick{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+section{padding:84px 0;position:relative}
 section.alt{background:var(--soft)}
-section.dark{background:var(--black);color:#f2f2f2}
+section.dark{background:var(--black);color:#f2f2f2;overflow:hidden}
+section.dark:before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 90% 0%,rgba(217,181,63,.16),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(217,181,63,.10),transparent 70%)}
+section.dark>.w{position:relative}
 section.dark h2{color:#fff}
-h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:10px 0 14px}
+h2{font-size:clamp(1.9rem,4.2vw,2.8rem);margin:10px 0 14px}
 .lead{color:var(--muted);max-width:62ch;font-size:1.05rem}
 .dark .lead{color:#cfcfcf}
-.hero{background:var(--black);color:#fff;padding:0;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 20%,rgba(217,181,63,.22),transparent 70%)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;position:relative}
-.nav b{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--gold3)}
-.nav span{font-size:.78rem;color:#bbb;letter-spacing:.12em;text-transform:uppercase}
-.hg{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:34px 0 70px;position:relative}
-.hero h1{font-size:clamp(2.3rem,5.6vw,4rem);margin:14px 0 16px}
-.hero p{color:#d6d6d6;max-width:48ch}
-.hero .shot{border-radius:16px;border:1px solid rgba(239,215,127,.45);box-shadow:0 30px 70px rgba(0,0,0,.5)}
-.btn{display:inline-block;margin-top:22px;padding:13px 26px;border-radius:50px;background:linear-gradient(135deg,#efd77f,#cfa92f);color:#111;font-weight:600;text-decoration:none}
-.grid{display:grid;gap:18px;margin-top:30px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 26px;background:rgba(10,10,10,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(239,215,127,.2)}
+.topbar b{font-family:var(--serif);color:var(--gold3);letter-spacing:.04em}
+.topbar span{font-size:.74rem;color:#bbb;letter-spacing:.14em;text-transform:uppercase}
+.prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,#d9b53f,#f6e6a6)}
+/* hero */
+.hero{background:var(--black);color:#fff;padding:0;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 25%,rgba(217,181,63,.22),transparent 70%)}
+.hg{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center;padding:110px 0 70px;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);margin:16px 0 18px}
+.hero p{color:#d6d6d6;max-width:46ch;font-size:1.08rem}
+.btn{display:inline-block;margin-top:26px;padding:15px 32px;border-radius:50px;background:linear-gradient(135deg,#efd77f,#cfa92f);color:#111;font-weight:600;text-decoration:none;box-shadow:0 12px 30px rgba(217,181,63,.35);transition:.25s;position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(217,181,63,.5)}
+.btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sweep 3.2s ease-in-out infinite}
+@keyframes sweep{0%,55%{left:-60%}100%{left:130%}}
+.mock{position:relative}
+.mock .scr{border-radius:14px;border:1px solid rgba(239,215,127,.5);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 6px rgba(255,255,255,.04);animation:float 6s ease-in-out infinite}
+.mock .ph{position:absolute;width:30%;right:-4%;bottom:-12%;border-radius:20px;border:5px solid #0a0a0a;box-shadow:0 24px 50px rgba(0,0,0,.6);animation:float 6s ease-in-out -2s infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+/* marquee */
+.mq{background:#111;border-block:1px solid rgba(239,215,127,.25);overflow:hidden;padding:15px 0;white-space:nowrap}
+.mq div{display:inline-flex;gap:46px;animation:mq 34s linear infinite;padding-left:46px}
+.mq span{color:var(--gold3);font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.mq span:before{content:"✦";margin-right:46px;color:var(--gold2)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* grids / cards */
+.grid{display:grid;gap:18px;margin-top:34px}
 .g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
-.dark .card{background:#141414;border-color:#2b2b2b}
-.card h3{font-size:1.15rem;margin-bottom:6px;font-family:var(--sans);font-weight:600}
-.card p{color:var(--muted);font-size:.95rem}.dark .card p{color:#bdbdbd}
-.ic{width:38px;height:38px;border-radius:50%;background:#0a0a0a;color:var(--gold3);display:grid;place-items:center;font-weight:700;margin-bottom:12px}
-.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}
-.shots figure{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.shots figcaption{padding:12px 16px;font-size:.88rem;color:var(--muted)}
-.shots figcaption b{color:var(--ink)}
-.phones{display:flex;gap:22px;justify-content:center;margin-top:34px;flex-wrap:wrap}
-.phones img{width:250px;height:auto;border-radius:22px;border:6px solid #0a0a0a;box-shadow:0 18px 40px rgba(0,0,0,.18)}
-table{color:#111;width:100%;border-collapse:collapse;margin-top:26px;font-size:.93rem;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:.35s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(184,146,31,.18);border-color:var(--gold2)}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(120px 120px at var(--mx,50%) var(--my,0%),rgba(217,181,63,.18),transparent);opacity:0;transition:.3s}
+.card:hover:before{opacity:1}
+.card h3{font-size:1.12rem;margin-bottom:6px;font-family:var(--sans);font-weight:600;position:relative}
+.card p{color:var(--muted);font-size:.94rem;position:relative}
+.ic{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#1a1a1a,#000);color:var(--gold3);display:grid;place-items:center;margin-bottom:14px;position:relative;font-size:1.25rem;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.nums div{text-align:center;padding:26px 10px;border:1px solid rgba(239,215,127,.25);border-radius:18px;background:rgba(255,255,255,.03)}
+.nums b{display:block;font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.4rem);color:var(--gold3);line-height:1}
+.nums span{font-size:.85rem;color:#bbb}
+/* journey */
+.jr{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px;position:relative}
+.jr:before{content:"";position:absolute;top:27px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,var(--gold2),rgba(217,181,63,.15))}
+.jr div{text-align:center;position:relative}
+.jr i{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;margin:0 auto 12px;background:#0a0a0a;color:var(--gold3);font-style:normal;font-weight:700;border:2px solid var(--gold2);box-shadow:0 0 0 6px #fff}
+.jr b{display:block}.jr small{color:var(--muted);font-size:.84rem}
+/* tables */
+table{color:#111;width:100%;border-collapse:collapse;margin-top:26px;font-size:.93rem;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
 th,td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:#0a0a0a;color:var(--gold3);font-weight:600}
 td.us,th.us{background:#fffaf0}th.us{background:var(--gold);color:#111}
 .tw{overflow-x:auto}
-.note{font-size:.82rem;color:var(--muted);margin-top:12px}
-.pk{border:2px solid var(--line);border-radius:20px;padding:28px;background:#fff;position:relative}
-.pk.top{border-color:var(--gold);box-shadow:0 20px 50px rgba(184,146,31,.16)}
-.pk .tag{position:absolute;top:-13px;left:24px;background:var(--gold);color:#111;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:30px}
-.pk h3{font-size:1.5rem}
+.note{font-size:.82rem;color:var(--muted);margin-top:14px}.dark .note{color:#9a9a9a}
+.note a{color:var(--gold)}
+/* calculator */
+.calc{margin-top:36px;display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:stretch}
+.cbox{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.06)}
+.cbox h3{font-family:var(--sans);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:600}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.chips button{font:inherit;font-weight:600;padding:11px 20px;border-radius:50px;border:1.5px solid #222;background:#fff;cursor:pointer;transition:.2s}
+.chips button.on{background:#0a0a0a;color:var(--gold3);border-color:#0a0a0a;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.chips button:hover{transform:translateY(-2px)}
+.res{background:var(--black);color:#fff;border-radius:22px;padding:32px;position:relative;overflow:hidden;border:1px solid rgba(239,215,127,.4)}
+.res:before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0%,rgba(217,181,63,.3),transparent 70%)}
+.res>*{position:relative}
+.res small{color:#bbb;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.big{font-family:var(--serif);font-size:clamp(2.8rem,7vw,4.6rem);line-height:1.05;color:var(--gold3);margin:6px 0 4px}
+.bars{display:flex;gap:12px;align-items:flex-end;height:120px;margin:22px 0 8px}
+.bars div{flex:1;background:linear-gradient(180deg,#f3dc86,#b8921f);border-radius:8px 8px 0 0;transition:height .8s cubic-bezier(.2,.8,.2,1);position:relative;min-height:6px}
+.bars div.sel{outline:2px solid #fff;outline-offset:2px}
+.bars div span{position:absolute;top:-22px;left:0;right:0;text-align:center;font-size:.72rem;color:#ddd;white-space:nowrap}
+.bl{display:flex;gap:12px}.bl span{flex:1;text-align:center;font-size:.78rem;color:#aaa}
+.pay{margin-top:22px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(239,215,127,.3);font-size:.92rem}
+.pay b{color:var(--gold3)}
+/* packages */
+.pk{border:2px solid var(--line);border-radius:24px;padding:30px;background:#fff;position:relative;transition:.3s}
+.pk:hover{transform:translateY(-6px)}
+.pk.top{border-color:var(--gold2);box-shadow:0 26px 60px rgba(184,146,31,.2);background:linear-gradient(180deg,#fffdf4,#fff)}
+.pk .tag{position:absolute;top:-14px;left:26px;background:linear-gradient(135deg,#efd77f,#cfa92f);color:#111;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:30px}
+.pk h3{font-size:1.6rem}
 .pk ul{list-style:none;margin:16px 0}
-.pk li{padding:7px 0 7px 28px;position:relative;border-bottom:1px solid #f0f0f0;font-size:.95rem}
+.pk li{padding:8px 0 8px 30px;position:relative;border-bottom:1px solid #f0f0f0;font-size:.95rem}
 .pk li:before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
 .pk li.soon:after{content:"em breve";margin-left:8px;font-size:.7rem;background:#f1f1f1;border-radius:20px;padding:2px 9px;color:#666}
-.price{font-family:var(--serif);font-size:1.7rem;color:var(--gold)}
-.price small{display:block;font-family:var(--sans);font-size:.8rem;color:var(--muted)}
-.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
-.steps div{background:#141414;border:1px solid #2b2b2b;border-radius:16px;padding:20px}
-.steps div:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gold2);color:#111;font-weight:700;margin-bottom:10px}
+.price{font-family:var(--serif);font-size:2.3rem;color:var(--gold);line-height:1}
+.price small{display:block;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:4px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;counter-reset:s}
+.steps div{background:#141414;border:1px solid #2b2b2b;border-radius:18px;padding:22px;transition:.3s}
+.steps div:hover{border-color:var(--gold2);transform:translateY(-5px)}
+.steps div:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--gold2);color:#111;font-weight:700;margin-bottom:12px}
+.steps p{color:#bbb;font-size:.92rem}
+.cta{text-align:center}
+.cta h2{font-size:clamp(2rem,5vw,3.4rem)}
 footer{background:#000;color:#aaa;padding:34px 0;text-align:center;font-size:.85rem}
 footer b{color:var(--gold3);font-family:var(--serif);font-size:1.1rem}
-@media(max-width:860px){.hg,.g2,.g3,.g4,.shots,.steps{grid-template-columns:1fr}section{padding:52px 0}.hero .shot{order:-1}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hg,.g2,.g3,.g4,.steps,.calc{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}.jr{grid-template-columns:1fr;gap:22px}.jr:before{display:none}.hero{min-height:auto}.hg{padding-top:96px}.mock .ph{width:34%}section{padding:60px 0}.topbar span{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div class="prog" id="prog"></div>
+<div class="topbar"><b>Muvoria Lab</b><span>Proposta · Diane Hair Beauty</span></div>
 
-<header class="hero"><div class="w">
-  <div class="nav"><b>Muvoria Lab</b><span>Proposta · Diane Hair Beauty</span></div>
-  <div class="hg">
-    <div>
-      <span class="kick" style="color:#efd77f">Plataforma de formação online</span>
-      <h1>Sua formação, <em>com a sua marca</em>, do primeiro acesso ao certificado.</h1>
-      <p>Um espaço de alunos com login próprio, aulas, quizzes, mapa mental, flashcards e certificado com o nome de cada aluna. No celular, no tablet e no computador.</p>
-      <a class="btn" href="#pacotes">Ver os pacotes</a>
-    </div>
-    <img class="shot" src="img/home.webp" alt="Tela inicial da plataforma" width="1100" height="688">
+<header class="hero"><canvas id="pt"></canvas><div class="w"><div class="hg">
+  <div>
+    <span class="kick" style="color:#efd77f">Plataforma de formação online</span>
+    <h1>Transforme seu talento em um <em>curso que vende</em>.</h1>
+    <p>Quase 20 anos de técnica da Diane, agora em uma plataforma só sua: login seguro, aulas, quizzes, certificado com o nome da aluna e tudo no celular.</p>
+    <a class="btn" href="#render">Ver quanto pode render</a>
   </div>
-</div></header>
+  <div class="mock"><img class="scr" src="img/home.webp" alt="Plataforma de formação Diane Hair Beauty" width="1100" height="688"><img class="ph" src="img/mobile.webp" alt="No celular" width="390" height="844"></div>
+</div></div></header>
+
+<div class="mq"><div><span>Login seguro</span><span>Certificado com o nome da aluna</span><span>Avaliação com 2 chances</span><span>Quiz</span><span>Mapa mental</span><span>Flashcards</span><span>Podcast com transcrição</span><span>No celular</span><span>Sua marca</span><span>Login seguro</span><span>Certificado com o nome da aluna</span><span>Avaliação com 2 chances</span><span>Quiz</span><span>Mapa mental</span><span>Flashcards</span><span>Podcast com transcrição</span><span>No celular</span><span>Sua marca</span></div></div>
 
 <section><div class="w">
-  <span class="kick">Por que agora</span>
-  <h2>O seu conhecimento <em>vira um produto</em>.</h2>
-  <p class="lead">Há quase 20 anos de técnica e de resultados no salão. Uma formação online leva esse saber a mais alunas, sem depender da sua agenda, e a parte presencial continua sendo o grande diferencial.</p>
+  <span class="kick rv">Por que agora</span>
+  <h2 class="rv">O seu conhecimento <em>vira um produto</em>.</h2>
+  <p class="lead rv">Há quase 20 anos de técnica e de resultados no salão. Uma formação online leva esse saber a mais alunas, sem depender da sua agenda. E a parte presencial continua sendo o grande diferencial.</p>
   <div class="grid g3">
-    <div class="card"><div class="ic">1</div><h3>Renda além do salão</h3><p>Cada curso pode ser vendido várias vezes, e o presencial vira um complemento premium.</p></div>
-    <div class="card"><div class="ic">2</div><h3>Autoridade</h3><p>Sua técnica, seus protocolos e sua marca, em um espaço profissional que só você controla.</p></div>
-    <div class="card"><div class="ic">3</div><h3>Segurança</h3><p>O conteúdo só abre para quem tem login. Ninguém copia ou compartilha o curso.</p></div>
+    <div class="card rv"><div class="ic">€</div><h3>Renda além do salão</h3><p>Cada curso pode ser vendido várias vezes, e o presencial vira um complemento premium.</p></div>
+    <div class="card rv"><div class="ic">★</div><h3>Autoridade</h3><p>Sua técnica, seus protocolos e sua marca, em um espaço profissional que só você controla.</p></div>
+    <div class="card rv"><div class="ic">🔒</div><h3>Segurança</h3><p>O conteúdo só abre para quem tem login. Ninguém copia nem compartilha o curso.</p></div>
   </div>
+</div></section>
+
+<section class="dark"><div class="w">
+  <span class="kick rv" style="color:#efd77f">A experiência da aluna</span>
+  <h2 class="rv">Do primeiro acesso ao <em>certificado</em>.</h2>
+  <div class="jr">
+    <div class="rv"><i>1</i><b>Aprender</b><small>Aulas, roteiro e checklist</small></div>
+    <div class="rv"><i>2</i><b>Revisar</b><small>Slides, podcast, mapa mental, flashcards</small></div>
+    <div class="rv"><i>3</i><b>Se testar</b><small>Quiz com respostas explicadas</small></div>
+    <div class="rv"><i>4</i><b>Prova final</b><small>10 perguntas, 2 chances</small></div>
+    <div class="rv"><i>5</i><b>Certificado</b><small>Com o nome da aluna</small></div>
+  </div>
+  <div class="nums">
+    <div class="rv"><b data-n="10">0</b><span>etapas no módulo-piloto</span></div>
+    <div class="rv"><b data-n="31">0</b><span>flashcards para memorizar</span></div>
+    <div class="rv"><b data-n="2">0</b><span>chances na avaliação final</span></div>
+    <div class="rv"><b data-n="100" data-s="%">0</b><span>no celular, tablet e computador</span></div>
+  </div>
+  <div class="grid g2" style="align-items:center;margin-top:40px">
+    <div class="rv"><img src="img/cert.webp" alt="Certificado com o nome da aluna" loading="lazy" style="border-radius:14px;border:1px solid rgba(239,215,127,.5);max-height:440px;margin:auto;box-shadow:0 30px 70px rgba(0,0,0,.5)"></div>
+    <div class="rv"><h2 style="font-size:2rem">Um certificado <em>de verdade</em> para cada aluna</h2><p class="lead">Emitido nas cores da Diane Hair Beauty, com o nome da aluna, a data e o módulo concluído. Só libera depois da avaliação final.</p></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <span class="kick rv">Benefícios</span>
+  <h2 class="rv">O que muda <em>para você e para as alunas</em>.</h2>
+  <div class="grid g3">
+    <div class="card rv"><div class="ic">📱</div><h3>No celular</h3><p>A aluna estuda onde estiver, com menu fixo e tudo adaptado à tela pequena.</p></div>
+    <div class="card rv"><div class="ic">🔑</div><h3>Login seguro</h3><p>E-mail e senha reais. Só entra quem você cadastra, e o conteúdo não circula por aí.</p></div>
+    <div class="card rv"><div class="ic">◆</div><h3>Sua marca</h3><p>Preto, dourado e branco, com seu logo e seu estilo.</p></div>
+    <div class="card rv"><div class="ic">✔</div><h3>Avaliação final com 2 chances</h3><p>Prova de 10 perguntas (acerto a partir de 7) e uma segunda tentativa se a aluna não passar.</p></div>
+    <div class="card rv"><div class="ic">🎓</div><h3>Certificado</h3><p>Emitido com o nome da aluna ao concluir o módulo e passar na avaliação.</p></div>
+    <div class="card rv"><div class="ic">🎬</div><h3>Ajuda na criação do conteúdo</h3><p>Edição e criação de vídeos, textos e apresentações. Você ensina, nós ajudamos a transformar em curso.</p></div>
+    <div class="card rv"><div class="ic">🧠</div><h3>Quiz, mapa mental e flashcards</h3><p>Revisão ativa, que ajuda a aluna a terminar o curso.</p></div>
+    <div class="card rv"><div class="ic">🎧</div><h3>Podcast e transcrição</h3><p>Para ouvir em deslocamento ou ler com horários.</p></div>
+    <div class="card rv"><div class="ic">✂</div><h3>Parte presencial</h3><p>O curso online leva à agenda do seu ateliê no salão.</p></div>
+  </div>
+</div></section>
+
+<section class="dark" id="render"><div class="w">
+  <span class="kick rv" style="color:#efd77f">Quanto pode render</span>
+  <h2 class="rv">Seus cursos <em>trabalhando por você</em>.</h2>
+  <p class="lead rv">Escolha o preço do curso e o número de alunas. Veja o faturamento bruto e em quantas vendas a plataforma já se paga.</p>
+  <div class="calc rv">
+    <div class="cbox" style="color:#111">
+      <h3>Preço do curso</h3>
+      <div class="chips" id="cp"><button data-v="300" class="on">300 €</button><button data-v="500">500 €</button><button data-v="1500">1.500 €</button></div>
+      <h3>Número de alunas</h3>
+      <div class="chips" id="ca"><button data-v="10" class="on">10 alunas</button><button data-v="30">30 alunas</button><button data-v="100">100 alunas</button></div>
+      <p style="color:var(--muted);font-size:.9rem">Faturamento bruto, antes das taxas de pagamento. O preço de venda será decidido com você. Como referência, um curso presencial de 1 dia de lissage brésilien é anunciado por cerca de 550 €.</p>
+    </div>
+    <div class="res">
+      <small>Você fatura</small>
+      <div class="big" id="tot">3.000 €</div>
+      <small id="sub">10 alunas × 300 €</small>
+      <div class="bars" id="bars"><div></div><div></div><div></div></div>
+      <div class="bl"><span>10 alunas</span><span>30 alunas</span><span>100 alunas</span></div>
+      <div class="pay" id="pay"></div>
+    </div>
+  </div>
+  <div class="tw rv"><table>
+    <tr><th>Preço do curso</th><th>10 alunas</th><th>30 alunas</th><th>100 alunas</th><th>Plataforma se paga com</th></tr>
+    <tr><td>300 €</td><td>3.000 €</td><td>9.000 €</td><td>30.000 €</td><td>4 alunas</td></tr>
+    <tr><td>500 €</td><td>5.000 €</td><td>15.000 €</td><td>50.000 €</td><td>2 a 3 alunas</td></tr>
+    <tr><td>1.500 €</td><td>15.000 €</td><td>45.000 €</td><td>150.000 €</td><td>1 aluna</td></tr>
+  </table></div>
+  <p class="note">Exemplos ilustrativos de faturamento bruto. Não são promessa de resultado: dependem de divulgação, preço e público.</p>
 </div></section>
 
 <section class="alt"><div class="w">
-  <span class="kick">A plataforma</span>
-  <h2>Tudo o que a aluna precisa, <em>em um só lugar</em>.</h2>
-  <div class="shots">
-    <figure><img src="img/home.webp" alt="" loading="lazy"><figcaption><b>Percurso numerado.</b> A aluna vê a próxima etapa e o progresso.</figcaption></figure>
-    <figure><img src="img/aula.webp" alt="" loading="lazy"><figcaption><b>Aulas</b> com objetivos, roteiro, checklist e material em PDF.</figcaption></figure>
-    <figure><img src="img/mapa.webp" alt="" loading="lazy"><figcaption><b>Mapa mental animado</b> para revisar o módulo em uma página.</figcaption></figure>
-    <figure><img src="img/flash.webp" alt="" loading="lazy"><figcaption><b>Flashcards</b> para memorizar, com “sei” e “revisar”.</figcaption></figure>
-    <figure><img src="img/quiz.webp" alt="" loading="lazy"><figcaption><b>Quiz e avaliação</b>: cada resposta é explicada, inclusive as erradas.</figcaption></figure>
-    <figure><img src="img/cert.webp" alt="" loading="lazy" style="max-height:420px;object-fit:contain;margin:auto"><figcaption><b>Certificado</b> em PDF/imagem, com o nome da aluna, nas suas cores.</figcaption></figure>
-  </div>
-  <div class="phones"><img src="img/mobile.webp" alt="Versão para celular" loading="lazy"><img src="img/mobile2.webp" alt="Aula no celular" loading="lazy"></div>
-  <p class="note" style="text-align:center">Funciona no celular, tablet e computador, com menu fixo embaixo no celular.</p>
-</div></section>
-
-<section><div class="w">
-  <span class="kick">Benefícios</span>
-  <h2>O que muda <em>para você e para as alunas</em>.</h2>
-  <div class="grid g3">
-    <div class="card"><h3>No celular</h3><p>A aluna estuda onde estiver, no celular, com menu fixo e tudo adaptado à tela pequena.</p></div>
-    <div class="card"><h3>Login seguro</h3><p>E-mail e senha reais. Só entra quem você cadastra, e o conteúdo não circula por aí.</p></div>
-    <div class="card"><h3>Sua marca</h3><p>Preto, dourado e branco, com seu logo e seu estilo.</p></div>
-    <div class="card"><h3>Avaliação final com 2 chances</h3><p>Prova de 10 perguntas (acerto a partir de 7) e uma segunda tentativa se a aluna não passar.</p></div>
-    <div class="card"><h3>Certificado</h3><p>Emitido com o nome da aluna ao concluir o módulo e passar na avaliação.</p></div>
-    <div class="card"><h3>Ajuda na criação do conteúdo</h3><p>Edição e criação de vídeos, textos e apresentações. Você ensina, nós ajudamos a transformar em curso.</p></div>
-    <div class="card"><h3>Quiz, mapa mental e flashcards</h3><p>Revisão ativa, que ajuda a aluna a terminar o curso.</p></div>
-    <div class="card"><h3>Podcast e transcrição</h3><p>Para ouvir em deslocamento ou ler com horários.</p></div>
-    <div class="card"><h3>Parte presencial</h3><p>O curso online leva à agenda do seu ateliê no salão.</p></div>
-  </div>
-</div>
-</section>
-
-<section class="dark"><div class="w">
-  <span class="kick" style="color:#efd77f">Diferencial</span>
-  <h2>Hotmart custa menos para começar. <em>E depois?</em></h2>
-  <p class="lead">Na Hotmart você não paga nada na entrada, mas paga <b>9,9% + 1 € em cada venda, para sempre</b>. Na plataforma própria você paga <b>uma vez</b> (e podemos parcelar em 2x) e não divide suas vendas com ninguém.</p>
-  <div class="tw"><table>
-    <tr><th></th><th>Hotmart</th><th>Systeme.io</th><th class="us">Plataforma Diane (própria)</th></tr>
-    <tr><td><b>Entrada</b></td><td>0 €</td><td>Plano gratuito limitado</td><td class="us">Pagamento único, parcelável em 2x</td></tr>
-    <tr><td><b>Depois</b></td><td>9,9% + 1,00 € por venda. Um curso de 1.500 € gera cerca de <b>149,50 € de taxa por venda</b>.</td><td>Mensalidade (cerca de 17 a 97 €/mês) e limites por plano.</td><td class="us">Sem comissão sobre as suas vendas.</td></tr>
-    <tr><td><b>Visual e marca</b></td><td>Padrão da Hotmart</td><td>Modelos genéricos</td><td class="us">Totalmente da sua marca</td></tr>
+  <span class="kick rv">Diferencial</span>
+  <h2 class="rv">Sua marca. Seus alunos. <em>Sem comissão.</em></h2>
+  <p class="lead rv">Plataformas prontas cobram uma parte de cada venda e entregam o visual delas. Na plataforma Diane você paga <b>uma vez</b> (e podemos parcelar em 2x) e fica com tudo o que vender.</p>
+  <div class="tw rv"><table>
+    <tr><th></th><th>Plataformas prontas (ex.: Hotmart)</th><th>Planos por assinatura (ex.: Systeme.io)</th><th class="us">Plataforma Diane</th></tr>
+    <tr><td><b>Custo</b></td><td>Entrada de 0 €, mas 9,9% + 1,00 € em cada venda. Um curso de 1.500 € gera cerca de <b>149,50 € de taxa por venda</b>.</td><td>Mensalidade (cerca de 17 a 97 €/mês) e limites por plano.</td><td class="us"><b>Pagamento único</b>, parcelável em 2x. Sem comissão sobre as suas vendas.</td></tr>
+    <tr><td><b>Visual e marca</b></td><td>Padrão da plataforma</td><td>Modelos genéricos</td><td class="us">Totalmente da sua marca</td></tr>
     <tr><td><b>Certificado com nome</b></td><td>Modelo da plataforma</td><td>Limitado</td><td class="us">Desenhado para você</td></tr>
     <tr><td><b>Quiz, mapa mental, flashcards, 2ª chance na prova</b></td><td>Básico</td><td>Básico</td><td class="us">Incluídos</td></tr>
     <tr><td><b>Dono dos alunos e do conteúdo</b></td><td>A plataforma</td><td>A plataforma</td><td class="us">Você</td></tr>
   </table></div>
-  <h3 style="font-family:var(--serif);font-size:1.5rem;margin:38px 0 6px;color:#fff">Quantas vendas até a plataforma própria sair mais barata?</h3>
-  <p class="lead" style="margin-bottom:6px">Só a taxa da Hotmart, sem contar a taxa do cartão (que existe em qualquer solução).</p>
-  <div class="tw"><table>
-    <tr><th>Preço do curso</th><th>Taxa Hotmart por venda</th><th>Pacote simples (999 €)</th><th>Combo (1.200 €)</th></tr>
-    <tr><td>150 €</td><td>15,85 €</td><td>63 vendas</td><td>76 vendas</td></tr>
-    <tr><td>300 €</td><td>30,70 €</td><td>33 vendas</td><td>40 vendas</td></tr>
-    <tr><td>500 €</td><td>50,50 €</td><td>20 vendas</td><td>24 vendas</td></tr>
-  </table></div>
-  <p class="note">Valores de terceiros consultados em novembro de 2026; confirmar nos sites oficiais. Os preços da nossa plataforma são em euros, sem TVA (HT).</p>
+  <p class="note">Valores de terceiros consultados em novembro de 2026; confirmar nos sites oficiais. Taxas de cartão existem em qualquer solução. Nossos preços são em euros, sem TVA (HT).</p>
 </div></section>
 
 <section><div class="w">
-  <span class="kick">Certificado</span>
-  <h2>Como funciona o <em>certificado</em>?</h2>
+  <span class="kick rv">Certificado</span>
+  <h2 class="rv">Como funciona o <em>certificado</em>?</h2>
   <div class="grid g2">
-    <div class="card"><h3>O que a plataforma emite</h3><p>Um <b>certificado de participação</b> (attestation de suivi) em nome da Diane Hair Beauty, com o nome da aluna, a data e o módulo. Ele comprova que a aluna concluiu o curso e passou na avaliação final. Não é um diploma do Estado.</p></div>
-    <div class="card"><h3>Precisa de algo oficial?</h3><p>Para <b>vender formação profissional</b> na França, a prática é declarar a atividade na <b>DREETS</b> e receber um número (NDA). A <b>Qualiopi</b> só é exigida para quem quer financiamento público (CPF, OPCO). Um <b>diploma ou título reconhecido</b> (RNCP) é outro processo, bem mais longo.</p></div>
+    <div class="card rv"><h3>O que a plataforma emite</h3><p>Um <b>certificado de participação</b> (attestation de suivi) em nome da Diane Hair Beauty, com o nome da aluna, a data e o módulo. Comprova que a aluna concluiu o curso e passou na avaliação final. Não é um diploma do Estado.</p></div>
+    <div class="card rv"><h3>Precisa de algo oficial?</h3><p>Para <b>vender formação profissional</b> na França, a prática é declarar a atividade na <b>DREETS</b> e receber um número (NDA). A <b>Qualiopi</b> só é exigida para financiamento público (CPF, OPCO). Um <b>diploma ou título reconhecido</b> (RNCP) é outro processo, bem mais longo.</p></div>
   </div>
   <p class="note">Ponto de atenção: o curso <b>complementa</b> a formação em coiffure e não substitui o CAP; a venda deve deixar isso claro. Confirmar com a DREETS ou um contador as exigências atuais. Fontes: <a href="https://bpifrance-creation.fr/activites-reglementees/formateur-independant" rel="noopener">Bpifrance Création</a>, <a href="https://nouvelle-aquitaine.dreets.gouv.fr/sites/nouvelle-aquitaine.dreets.gouv.fr/IMG/pdf/faq_jeveux_medeclarer.pdf" rel="noopener">DREETS Nouvelle-Aquitaine</a>.</p>
 </div></section>
 
 <section class="alt" id="pacotes"><div class="w">
-  <span class="kick">Pacotes</span>
-  <h2>Dois formatos, <em>sob medida</em>.</h2>
+  <span class="kick rv">Pacotes</span>
+  <h2 class="rv">Dois formatos, <em>sob medida</em>.</h2>
   <div class="grid g2" style="align-items:start">
-    <div class="pk top"><span class="tag">Completo · 3 cursos</span>
+    <div class="pk top rv"><span class="tag">Completo · 3 cursos</span>
       <h3>Combo completo</h3>
       <ul>
         <li>Plataforma com a sua marca e login seguro</li>
@@ -179,7 +264,7 @@ footer b{color:var(--gold3);font-family:var(--serif);font-size:1.1rem}
       </ul>
       <div class="price">1.200 € HT<small>parcelável em 2x</small></div>
     </div>
-    <div class="pk"><h3>Pacote simples</h3>
+    <div class="pk rv"><h3>Pacote simples</h3>
       <ul>
         <li>Plataforma com a sua marca e login seguro</li>
         <li class="soon">Espaço da formadora (acompanhar o que as alunas fazem)</li>
@@ -191,34 +276,52 @@ footer b{color:var(--gold3);font-family:var(--serif);font-size:1.1rem}
       <p style="margin-top:14px;padding:12px 14px;background:#fffaf0;border:1px solid #efe0a8;border-radius:12px;font-size:.92rem"><b>+ 299 € HT por curso acrescentado</b> (conteúdo, quiz e certificado do novo curso).</p>
     </div>
   </div>
-  <div class="card" style="margin-top:20px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h3>Opção adicional: versão em português</h3><p>A plataforma e o conteúdo traduzidos, com troca de idioma FR/PT para as alunas.</p></div><div class="price" style="text-align:right">+ 200 € HT</div></div>
+  <div class="card rv" style="margin-top:20px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h3>Opção adicional: versão em português</h3><p>A plataforma e o conteúdo traduzidos, com troca de idioma FR/PT para as alunas.</p></div><div class="price" style="text-align:right;font-size:1.8rem">+ 200 € HT</div></div>
   <p class="note">Valores em euros, sem TVA (HT). Hospedagem e taxas de pagamento online (terceiros) são informadas à parte e têm plano gratuito para começar. Combo: 3 cursos por 1.200 € (no pacote simples, 3 cursos sairiam por 1.298 €).</p>
 </div></section>
 
-<section><div class="w">
-  <span class="kick">Quanto pode render</span>
-  <h2>Uma conta <em>simples</em>.</h2>
-  <p class="lead">Exemplos ilustrativos de faturamento bruto por curso, antes de taxas de pagamento. O preço de venda será decidido com você. Como referência, um curso presencial de 1 dia de lissage brésilien é anunciado por cerca de 550 €, e um guia digital por cerca de 23 €.</p>
-  <div class="tw"><table>
-    <tr><th>Preço do curso</th><th>10 alunas</th><th>30 alunas</th><th>100 alunas</th></tr>
-    <tr><td>150 €</td><td>1.500 €</td><td>4.500 €</td><td>15.000 €</td></tr>
-    <tr><td>300 €</td><td>3.000 €</td><td>9.000 €</td><td>30.000 €</td></tr>
-    <tr><td>500 €</td><td>5.000 €</td><td>15.000 €</td><td>50.000 €</td></tr>
-  </table></div>
-</div></section>
-
-<section class="dark"><div class="w">
-  <span class="kick" style="color:#efd77f">Como seguimos</span>
-  <h2>Do “sim” ao <em>primeiro aluno</em>.</h2>
-  <div class="steps">
-    <div><b>Definir</b><p style="color:#bbb;font-size:.92rem">Pacote, valores e tema do primeiro curso.</p></div>
-    <div><b>Produzir</b><p style="color:#bbb;font-size:.92rem">Aulas, quiz, certificado e materiais revisados por você.</p></div>
-    <div><b>Validar</b><p style="color:#bbb;font-size:.92rem">Você testa tudo e aprova os conteúdos técnicos.</p></div>
-    <div><b>Lançar</b><p style="color:#bbb;font-size:.92rem">Acessos das alunas e divulgação no site.</p></div>
+<section class="dark"><div class="w cta">
+  <span class="kick rv" style="color:#efd77f">Como seguimos</span>
+  <h2 class="rv">Do “sim” ao <em>primeiro aluno</em>.</h2>
+  <div class="steps" style="text-align:left">
+    <div class="rv"><b>Definir</b><p>Pacote, valores e tema do primeiro curso.</p></div>
+    <div class="rv"><b>Produzir</b><p>Aulas, quiz, certificado e materiais revisados por você.</p></div>
+    <div class="rv"><b>Validar</b><p>Você testa tudo e aprova os conteúdos técnicos.</p></div>
+    <div class="rv"><b>Lançar</b><p>Acessos das alunas e divulgação no site.</p></div>
   </div>
-  <p style="margin-top:30px;color:#ddd">Demonstração ao vivo na nossa reunião. A área de alunos já está no site da Diane.</p>
+  <a class="btn" href="mailto:hello@muvoria.fr?subject=Plataforma%20de%20forma%C3%A7%C3%A3o%20Diane%20Hair%20Beauty">Vamos começar</a>
 </div></section>
 
 <footer><b>Muvoria Lab</b><br>hello@muvoria.fr<br><span style="font-size:.75rem">Proposta confidencial · valores sujeitos a confirmação</span></footer>
+
+<script>
+(function(){
+  // progress bar
+  var pg=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement;pg.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+  // reveal + counters
+  var fmt=function(n){return n.toLocaleString('pt-BR')};
+  function count(el){var t=+el.dataset.n,s=el.dataset.s||'',st=performance.now();(function f(now){var p=Math.min(1,(now-st)/1400);el.textContent=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)})(st)}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');var b=e.target.querySelector('[data-n]');if(b&&!b.done){b.done=1;count(b)}io.unobserve(e.target)}})},{threshold:.15});
+  [].forEach.call(document.querySelectorAll('.rv'),function(el,i){el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+  // glow follows mouse on cards
+  [].forEach.call(document.querySelectorAll('.card'),function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+  // particles
+  var cv=document.getElementById('pt');if(cv&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var x=cv.getContext('2d'),W,H,P=[];function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;P=[];for(var i=0;i<Math.min(70,W/18);i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,v:Math.random()*.35+.1,a:Math.random()*.6+.2})}rs();addEventListener('resize',rs);
+    (function f(){x.clearRect(0,0,W,H);P.forEach(function(p){p.y-=p.v;if(p.y<-4){p.y=H+4;p.x=Math.random()*W}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(239,215,127,'+p.a+')';x.fill()});requestAnimationFrame(f)})()}
+  // calculator
+  var price=300,al=10,tot=document.getElementById('tot'),sub=document.getElementById('sub'),bars=document.getElementById('bars'),pay=document.getElementById('pay'),cur=0;
+  function anim(to){var from=cur,st=performance.now();(function f(now){var p=Math.min(1,(now-st)/700),v=Math.round(from+(to-from)*(1-Math.pow(1-p,3)));tot.textContent=fmt(v)+' €';if(p<1)requestAnimationFrame(f);else cur=to})(st)}
+  function upd(){
+    anim(price*al);sub.textContent=al+' alunas × '+fmt(price)+' €';
+    var vals=[10,30,100].map(function(n){return n*price}),mx=vals[2];
+    [].forEach.call(bars.children,function(b,i){b.style.height=Math.max(6,vals[i]/mx*100)+'%';b.className=[10,30,100][i]===al?'sel':'';b.innerHTML='<span>'+fmt(vals[i])+' €</span>'});
+    var a=Math.ceil(999/price),c=Math.ceil(1200/price);
+    pay.innerHTML='A plataforma se paga com a venda para <b>'+(a===c?a+(a===1?' aluna':' alunas'):a+' a '+c+' alunas')+'</b>. Com '+al+' alunas, sobram <b>'+fmt(price*al-1200)+' €</b> depois do combo (1.200 € HT), antes das taxas de pagamento.';
+  }
+  function chips(id,fn){var box=document.getElementById(id);box.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(box.children,function(x){x.classList.toggle('on',x===b)});fn(+b.dataset.v);upd()})}
+  chips('cp',function(v){price=v});chips('ca',function(v){al=v});upd();
+})();
+</script>
 </body>
 </html>
