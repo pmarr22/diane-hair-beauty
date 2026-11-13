@@ -699,3 +699,6 @@ body{background:#fff;color:var(--txt);background-image:none}
   .lg-ph{display:none}
   .lg-l .lg-c{left:18px;right:18px;bottom:20px}
 }
+/* connexion v4 : logo en haut à gauche, haute définition */
+.lg-l img.lg-lg{left:28px;top:24px;transform:none;width:132px;height:132px;image-rendering:auto}
+@media (max-width:1000px){.lg-l{max-height:none}.lg-l img.lg-lg{left:16px;top:14px;width:92px;height:92px}}

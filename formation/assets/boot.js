@@ -12,7 +12,7 @@
   function setLang(l) { LANG = l; try { var s = JSON.parse(localStorage.getItem(KEY) || "{}"); s.lang = l; localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} document.documentElement.lang = l; }
   function loginHTML(msg, busy) {
     var t = T[LANG];
-    return '<div class="login"><div class="lg-l"><div class="bg" style="background-image:url(assets/img/login-tesoura.webp)"></div><img class="lg-lg" src="assets/img/login-logo.webp" alt="Formation Diane Hair" width="400" height="400"><figure class="lg-ph"><img src="assets/img/login-cliente.webp" alt="Diane au travail" width="720" height="900"></figure><div class="lg-c"><p class="lg-q">' + t.q1 + ' <em>' + t.q2 + '</em></p><p class="lg-s">' + t.sub + '</p></div></div>' +
+    return '<div class="login"><div class="lg-l"><div class="bg" style="background-image:url(assets/img/login-tesoura.webp)"></div><img class="lg-lg" src="assets/img/login-logo.webp" alt="Formation Diane Hair" width="640" height="640"><div class="lg-c"><p class="lg-q">' + t.q1 + ' <em>' + t.q2 + '</em></p><p class="lg-s">' + t.sub + '</p></div></div>' +
       '<div class="lg-r"><form class="lcard" id="lf" novalidate><div class="lang" role="group" aria-label="Langue"' + (CFG.pt ? '' : ' hidden') + '><button type="button" data-l="fr" class="' + (LANG === "fr" ? "on" : "") + '">FR</button><button type="button" data-l="pt" class="' + (LANG === "pt" ? "on" : "") + '">PT</button></div>' +
       '<div class="kick">' + t.kick + '</div><h1>' + t.title + '</h1>' +
       '<label class="fld"><span>' + t.mail + '</span><input type="email" id="em" autocomplete="username" inputmode="email" required></label>' +
