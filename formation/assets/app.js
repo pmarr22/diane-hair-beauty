@@ -44,7 +44,8 @@
   if (SEC) { S.logged = true; if (!S.name && SEC.name) S.name = SEC.name; }
   /* mode sécurisé : les fichiers du cours sont servis par des liens signés (valables après connexion) */
   var U = function (h) { var m = window.__URLS; return m ? String(h).replace(/assets\/(?:img|photos|slides|media|pdf)\/[A-Za-z0-9_.\-]+/g, function (p) { return m[p] || p; }) : h; };
-  LANG = S.lang === "pt" ? "pt" : "fr"; C = LANG === "pt" ? CPT : CFR; document.documentElement.lang = LANG;
+  var PTON = !!(window.DHB_CONFIG && window.DHB_CONFIG.pt) || !!window.DHB_PT;
+  LANG = PTON && S.lang === "pt" ? "pt" : "fr"; C = LANG === "pt" ? CPT : CFR; document.documentElement.lang = LANG;
   var save = function () { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
 
   /* ---------- contenu du module ---------- */
@@ -74,6 +75,7 @@
   var RIBBON = "Aperçu de démonstration · contenu à valider par Diane avant publication";
 
   function langSwitch() {
+    if (!PTON) return "";
     return '<div class="lang" role="group" aria-label="Langue / Idioma"><button type="button" data-action="lang" data-l="fr" class="' + (LANG === "fr" ? "on" : "") + '">FR</button><button type="button" data-action="lang" data-l="pt" class="' + (LANG === "pt" ? "on" : "") + '">PT</button></div>';
   }
   function header(route) {
@@ -174,9 +176,10 @@
     var st = Q[key], L = "ABCD";
     if (st.done) {
       var n = st.qs.length, ok = key === "evaluation" ? st.score >= 7 : st.score >= Math.ceil(n * 0.6);
-      var msg = ok ? "Bravo ! Vous maîtrisez les points essentiels." : "Relisez la leçon puis retentez votre chance : la sécurité ne s’improvise pas.";
-      return '<div class="qres"><div class="score">' + st.score + ' / ' + n + '</div><p>' + msg + '</p><div class="qacts"><button class="btn" data-action="quiz-retry" data-key="' + key + '">Recommencer</button>' +
-        (key === "evaluation" ? '<a class="btn gold" href="#/certificat">Voir mon attestation ' + ic("right") + '</a>' : "") + '</div></div>';
+      var att = (S.att && S.att[key]) || 0, left = 2 - att, ev = key === "evaluation", canRetry = !ev || (!ok && left > 0);
+      var msg = ev ? (ok ? "Félicitations, évaluation réussie ! Votre attestation est disponible." : left > 0 ? "Vous n’avez pas atteint 7 / 10. Il vous reste " + left + " tentative : relisez les leçons puis réessayez." : "Les 2 tentatives sont épuisées. Contactez Diane pour obtenir une nouvelle chance.") : (ok ? "Bravo ! Vous maîtrisez les points essentiels." : "Relisez la leçon puis retentez votre chance : la sécurité ne s’improvise pas.");
+      return '<div class="qres"><div class="score">' + st.score + ' / ' + n + '</div><p>' + msg + '</p><div class="qacts">' + (canRetry ? '<button class="btn" data-action="quiz-retry" data-key="' + key + '">' + (ev ? "Deuxième tentative" : "Recommencer") + '</button>' : "") +
+        (ev && ok ? '<a class="btn gold" href="#/certificat">Voir mon attestation ' + ic("right") + '</a>' : "") + '</div></div>';
     }
     var q = st.qs[st.i], dots = st.qs.map(function (_, k) { return '<i class="' + (k < st.i ? "on" : k === st.i ? "cur" : "") + '"></i>'; }).join("");
     var opts = q.o.map(function (t, k) {
@@ -276,7 +279,7 @@
       '<div style="margin-top:12px"><a class="btn sm" href="assets/img/infographie.webp" download>' + ic("dl") + ' Télécharger l’image</a></div>';
   }
   function evalHTML() {
-    return '<section class="card"><h2>Validez vos acquis</h2><p style="color:var(--mut)">10 questions tirées au hasard dans une banque de ' + evalQs().length + ' questions (leçons et guide). Réussite à partir de 7 bonnes réponses (exemple de seuil). Vous pouvez recommencer : les questions changent.</p></section>' + quizBox("evaluation", evalQs());
+    return '<section class="card"><h2>Validez vos acquis</h2><p style="color:var(--mut)">10 questions tirées au hasard dans une banque de ' + evalQs().length + ' questions (leçons et guide). Réussite à partir de 7 bonnes réponses. Vous avez 2 tentatives : en cas d’échec, relisez les leçons puis réessayez (les questions changent).</p></section>' + quizBox("evaluation", evalQs());
   }
   function guideHTML() {
     return '<section class="card"><h2>Testez-vous sur le guide</h2><p style="color:var(--mut)">Chaque réponse est expliquée, y compris les mauvaises. Les valeurs techniques restent à valider par Diane.</p></section>' + quizBox("guide", C.guide.quiz);
@@ -316,7 +319,7 @@
       ["Comment accéder à mes cours ?", "Avec votre e-mail et votre mot de passe, depuis un téléphone, une tablette ou un ordinateur. Votre progression est enregistrée à chaque étape. (Exemple de fonctionnement.)"],
       ["Pourquoi une partie en présentiel ?", "La pratique en présentiel reste essentielle pour garantir un bon résultat : l’analyse visuelle, le toucher de la fibre, la tension de la mèche et la vitesse de glissement du fer s’apprennent en cabine."],
       ["Puis-je télécharger les supports ?", "Oui. Chaque leçon propose son support PDF avec le script, le quiz et la check-list à imprimer."],
-      ["Comment est validé le module ?", "Par une évaluation de 10 questions, avec une attestation de suivi à la fin. Le seuil de réussite est donné à titre d’exemple et reste à définir avec Diane."],
+      ["Comment est validé le module ?", "Par une évaluation finale de 10 questions (réussite à partir de 7 bonnes réponses). Vous avez 2 tentatives. Ensuite, vous recevez votre attestation de suivi."],
       ["Combien de temps ai-je accès au contenu ?", "À définir avec Diane (accès illimité ou limité dans le temps)."],
       ["Comment contacter Diane ?", "Par WhatsApp au 07 53 93 69 12 ou par e-mail à contact@dianehairbeauty.fr."]
     ];
@@ -563,7 +566,7 @@
     else if (a === "done") { var id = el.getAttribute("data-id"); S.done[id] = !S.done[id]; save(); var y = window.scrollY; render(); window.scrollTo(0, y); }
     else if (a === "tab") { var i2 = el.getAttribute("data-id"), t = el.getAttribute("data-tab"); TAB[i2] = t; var box = $('[data-panel="' + i2 + '"]'); box.innerHTML = U(lessonPanel(i2, t)); document.querySelectorAll(".tabs button").forEach(function (b) { b.classList.toggle("on", b === el); }); }
     else if (a === "quiz-pick") { var k = el.getAttribute("data-key"), st = Q[k]; if (st.sel !== null) return; st.sel = +el.getAttribute("data-o"); if (st.sel === st.qs[st.i].a) st.score++; refreshQuiz(k); }
-    else if (a === "quiz-next") { var k2 = el.getAttribute("data-key"), s2 = Q[k2]; s2.sel = null; s2.i++; if (s2.i >= s2.qs.length) { s2.done = true; S.scores[k2] = s2.score; var pass = k2 === "evaluation" ? s2.score >= 7 : s2.score >= Math.ceil(s2.qs.length * 0.6); if (pass && k2 === "evaluation") S.done.evaluation = true; if (pass && k2 === "guide") S.done.quizguide = true; save(); } refreshQuiz(k2); }
+    else if (a === "quiz-next") { var k2 = el.getAttribute("data-key"), s2 = Q[k2]; s2.sel = null; s2.i++; if (s2.i >= s2.qs.length) { s2.done = true; S.scores[k2] = s2.score; if (k2 === "evaluation") { S.att = S.att || {}; S.att.evaluation = (S.att.evaluation || 0) + 1; } var pass = k2 === "evaluation" ? s2.score >= 7 : s2.score >= Math.ceil(s2.qs.length * 0.6); if (pass && k2 === "evaluation") S.done.evaluation = true; if (pass && k2 === "guide") S.done.quizguide = true; save(); } refreshQuiz(k2); }
     else if (a === "quiz-retry") { var k3 = el.getAttribute("data-key"); Q[k3] = freshQuiz(k3); refreshQuiz(k3); }
     else if (a === "check") { /* géré par change */ }
     else if (a === "print") { window.print(); }
