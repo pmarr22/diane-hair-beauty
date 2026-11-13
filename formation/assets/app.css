@@ -667,3 +667,4 @@ body{background:#fff;color:var(--txt);background-image:none}
 @media (max-width:1000px){.hm-grid{grid-template-columns:minmax(0,1fr)}.hm-side{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.hm-side .card:first-child{grid-column:1/-1}}
 @media (max-width:760px){.mod-c{grid-template-columns:minmax(0,1fr)}.rs-card{flex-wrap:wrap}.rs-card .btn{width:100%}.hm-side{grid-template-columns:minmax(0,1fr)}.hm-av{width:52px;height:52px}}
 .hm-main .rail.three{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:1000px){.hm-main .rail.three{display:flex}}
+.lang[hidden]{display:none!important}
