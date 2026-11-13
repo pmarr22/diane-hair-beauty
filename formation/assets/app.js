@@ -117,32 +117,46 @@
       '<span class="btn sm">' + (d ? "Revoir la leçon" : "Commencer la leçon") + ' ' + ic("right") + '</span></div><div class="mimg" style="background-image:url(' + it.img + ')"></div>' +
       '<div class="bar"><i style="width:' + (d ? 100 : 0) + '%"></i></div></a>';
   }
+  var HT = "cours";
+  function stepRow(it) {
+    var k = ITEMS.indexOf(it) + 1, d = S.done[it.id], nx = nextItem(), isn = nx && nx.id === it.id;
+    return '<li><a class="step' + (d ? " done" : "") + (isn ? " next" : "") + '" href="#/lesson/' + it.id + '"><span class="sn">' + (d ? ic("check") : k) + '</span><span class="sic">' + ic(it.icon) + '</span><span class="stx"><small>' + esc(it.tag) + '</small><b>' + esc(it.title) + '</b><em>' + esc(it.why) + '</em></span><span class="sme">' + esc(it.dur) + '</span><span class="sgo">' + (isn ? (doneCount() ? "Continuer" : "Commencer") : d ? "Revoir" : "Ouvrir") + ic("right") + '</span></a></li>';
+  }
+  function calendar() {
+    var now = new Date(), y = now.getFullYear(), m = now.getMonth(), first = new Date(y, m, 1), off = (first.getDay() + 6) % 7, dim = new Date(y, m + 1, 0).getDate(), days = S.days || {};
+    var head = LANG === "pt" ? ["S", "T", "Q", "Q", "S", "S", "D"] : ["L", "M", "M", "J", "V", "S", "D"], out = head.map(function (h) { return '<i class="ch">' + h + '</i>'; }).join("");
+    for (var b = 0; b < off; b++) out += '<i></i>';
+    for (var d = 1; d <= dim; d++) { var key = y + "-" + (m + 1) + "-" + d; out += '<i class="cd' + (d === now.getDate() ? " today" : "") + (days[key] ? " on" : "") + '">' + d + '</i>'; }
+    var lab = now.toLocaleDateString(LANG === "pt" ? "pt-BR" : "fr-FR", { month: "long", year: "numeric" });
+    return '<div class="cal"><h3>' + lab.charAt(0).toUpperCase() + lab.slice(1) + '</h3><div class="cg">' + out + '</div><p class="cl"><i></i>Jour d’étude</p></div>';
+  }
   function homePage() {
-    var n = nextItem(), p = pct();
-    var cta = n ? '<a class="btn gold" href="#/lesson/' + n.id + '">' + (doneCount() ? "Continuer la formation" : "Commencer la formation") + ' ' + ic("right") + '</a>' : '<a class="btn gold" href="#/certificat">Voir mon attestation ' + ic("right") + '</a>';
+    var n = nextItem(), p = pct(), all = p === 100, name = (S.name || (SEC && SEC.name) || "").trim(), first = name ? name.split(" ")[0] : "";
+    var days = Object.keys(S.days || {}).length, best = S.scores.evaluation;
     var locked = [
       { tag: "Bientôt", title: "Balayage & colorimétrie", dur: "Placement, lumière & précision", img: "assets/photos/balayage.webp", icon: "lock" },
       { tag: "Bientôt", title: "Extensions", dur: "Pose et finition", img: "assets/photos/extensions.webp", icon: "lock" },
       { tag: "Présentiel", title: "Formations complètes", dur: "Devenez expert(e)", img: "assets/photos/formation.webp", icon: "lock" }
     ];
-    var nx = n ? ITEMS.indexOf(n) + 1 : 0, all = pct() === 100;
-    var start = '<div class="start"><div class="start-l"><div class="kick">' + (all ? "Parcours terminé" : doneCount() ? "Votre prochaine étape" : "Comment ça marche") + '</div>' +
-      (n ? '<h2>' + (doneCount() ? "Étape " + nx + " : " : "Commencez par l’étape 1 : ") + esc(n.title) + '</h2><p>' + (doneCount() ? esc(n.why) : "Suivez les étapes dans l’ordre : <b>apprendre</b>, <b>réviser</b>, <b>se tester</b>, puis la pratique en salon avec Diane. Environ 40 min en ligne.") + '</p>' : '<h2>Bravo, vous avez terminé le module !</h2><p>Votre attestation de suivi est prête.</p>') +
-      '<div class="start-a">' + cta + '</div></div><div class="start-r"><div class="ring" style="--p:' + p + '"><b>' + p + '%</b><span>' + doneCount() + ' / ' + ITEMS.length + ' étapes</span></div></div></div>';
-    var trail = GROUPS.map(function (g, gi) {
-      var its = ITEMS.filter(function (it) { return it.grp === g[0]; });
-      return '<section class="grp"><h2><span class="gn">' + (gi + 1) + '</span>' + g[0] + ' <small>' + g[1] + '</small></h2><ol class="trail">' + its.map(function (it) {
-        var k = ITEMS.indexOf(it) + 1, d = S.done[it.id], isn = n && n.id === it.id;
-        return '<li><a class="step' + (d ? " done" : "") + (isn ? " next" : "") + '" href="#/lesson/' + it.id + '"><span class="sn">' + (d ? ic("check") : k) + '</span><span class="sic">' + ic(it.icon) + '</span><span class="stx"><small>' + esc(it.tag) + '</small><b>' + esc(it.title) + '</b><em>' + esc(it.why) + '</em></span><span class="sme">' + esc(it.dur) + '</span><span class="sgo">' + (isn ? (doneCount() ? "Continuer" : "Commencer") : d ? "Revoir" : "Ouvrir") + ic("right") + '</span></a></li>';
-      }).join("") + '</ol></section>';
-    }).join("");
-    var cert = '<section class="grp"><h2><span class="gn">' + ic("gem") + '</span>Attestation <small>' + (all ? "Disponible" : "Se débloque après les " + ITEMS.length + " étapes") + '</small></h2><ol class="trail"><li><a class="step certrow' + (all ? " next" : " lockd") + '" href="#/certificat"><span class="sn">' + ic(all ? "gem" : "lock") + '</span><span class="sic">' + ic("cap") + '</span><span class="stx"><small>Fin de formation</small><b>Mon attestation de suivi</b><em>' + (all ? "Votre attestation est prête à télécharger" : "Aperçu du modèle avec votre nom") + '</em></span><span class="sme"></span><span class="sgo">' + (all ? "Obtenir" : "Aperçu") + ic("right") + '</span></a></li></ol></section>';
-    return '<section class="hero"><div class="himg" style="background-image:url(assets/photos/hero.webp)"></div><div class="hin"><div class="hc">' +
-      '<div class="kick">Formation en ligne et en salon</div><h1 class="htitle"><b>Lissage brésilien<br>sans formol</b></h1>' +
-      '<p class="hsub">Maîtrisez la technique, en toute sécurité, pour un résultat <b>lisse et naturel.</b></p>' +
-      '<div class="hcta">' + cta + '</div></div></div></section>' +
-      '<div class="wrap"><section class="row">' + start + '</section><section class="row"><h2 class="rt">Votre parcours <small>' + ITEMS.length + ' étapes, dans l’ordre</small></h2>' + trail + cert + '</section>' +
-      '<section class="row"><h2 class="rt">Prochainement <small>Autres formations</small></h2><div class="rail three">' + locked.map(function (l) { return poster(l, true); }).join("") + '</div></section></div>';
+    var tab = function (k, l) { return '<button class="' + (HT === k ? "on" : "") + '" data-action="ht" data-t="' + k + '">' + l + '</button>'; };
+    var main = "";
+    if (HT === "cours") {
+      var resume = n ? '<div class="rs-card"><div><small>' + esc(n.tag) + '</small><b>' + esc(n.title) + '</b><em>' + ic(n.icon) + esc(n.dur) + '</em></div><a class="btn gold sm" href="#/lesson/' + n.id + '">' + (doneCount() ? "Continuer" : "Commencer") + '</a></div>' : '<div class="rs-card"><div><small>Fin de formation</small><b>Mon attestation de suivi</b><em>' + ic("gem") + 'Votre attestation est prête à télécharger</em></div><a class="btn gold sm" href="#/certificat">Obtenir</a></div>';
+      main = '<div class="mod"><div class="mod-h"><span class="mod-i">' + ic("cap") + '</span><b>Lissage brésilien sans formol</b></div>' +
+        '<div class="mod-c"><div class="mod-l"><b>Module pilote · ' + ITEMS.length + ' étapes</b><span>' + doneCount() + ' sur ' + ITEMS.length + ' terminées · ' + p + ' % complété</span><div class="bar"><i style="width:' + p + '%"></i></div></div>' + resume + '</div></div>' +
+        GROUPS.map(function (g, gi) { var its = ITEMS.filter(function (it) { return it.grp === g[0]; }); return '<section class="grp"><h2><span class="gn">' + (gi + 1) + '</span>' + g[0] + ' <small>' + g[1] + '</small></h2><ol class="trail">' + its.map(stepRow).join("") + '</ol></section>'; }).join("") +
+        '<section class="row"><h2 class="rt">Prochainement <small>Autres formations</small></h2><div class="rail three">' + locked.map(function (l) { return poster(l, true); }).join("") + '</div></section>';
+    } else if (HT === "fini") {
+      var dn = ITEMS.filter(function (it) { return S.done[it.id]; });
+      main = dn.length ? '<ol class="trail" style="margin-top:6px">' + dn.map(stepRow).join("") + '</ol>' : '<div class="empty">' + ic("clip") + '<b>Aucune étape terminée pour le moment</b><p>Commencez la formation : vos étapes terminées apparaîtront ici.</p><a class="btn gold sm" href="' + (n ? "#/lesson/" + n.id : "#/") + '">Commencer</a></div>';
+    } else {
+      main = '<div class="mod"><div class="mod-c cert-c"><div class="mod-l"><b>Attestation de suivi</b><span>' + (all ? "Disponible : téléchargez votre attestation avec votre nom." : "Elle se débloque après les " + ITEMS.length + " étapes. Aperçu avec votre nom disponible.") + '</span></div><a class="btn gold sm" href="#/certificat">' + (all ? "Voir mon attestation" : "Voir l’aperçu") + '</a></div></div>';
+    }
+    var side = '<aside class="hm-side"><div class="card">' + calendar() + '</div><div class="card sts"><h3>Mon activité</h3><div class="sg3"><div><b>' + days + '</b><span>Jours d’étude</span></div><div><b>' + doneCount() + '</b><span>Étapes terminées</span></div><div><b>' + (best !== undefined ? best + "/10" : "—") + '</b><span>Évaluation</span></div></div></div>' +
+      '<div class="card"><h3>Mes attestations</h3><a class="cert-mini' + (all ? "" : " lockd") + '" href="#/certificat"><span class="seal">' + ic(all ? "gem" : "lock") + '</span><span><b>Lissage brésilien sans formol</b><small>' + (all ? "Voir mon attestation" : "Se débloque à la fin du module") + '</small></span></a></div></aside>';
+    return '<div class="wrap hm"><div class="hm-hello"><span class="hm-av">' + (first ? esc(first.charAt(0).toUpperCase()) : "É") + '</span><div><h1>' + (first ? "Bienvenue, " + esc(first) : "Bienvenue") + '</h1><p>Votre formation : Lissage brésilien sans formol, en ligne et en salon avec Diane.</p></div></div>' +
+      '<div class="hm-tabs" role="tablist">' + tab("cours", "En cours") + tab("fini", "Terminées") + tab("cert", "Attestations") + '</div>' +
+      '<div class="hm-grid"><div class="hm-main">' + main + '</div>' + side + '</div></div>';
   }
 
   /* ---------- quiz ---------- */
@@ -277,6 +291,7 @@
   }
   function lessonPage(id) {
     var it = byId(id); if (!it) return notFound();
+    var td = new Date(); S.days = S.days || {}; S.days[td.getFullYear() + "-" + (td.getMonth() + 1) + "-" + td.getDate()] = 1; save();
     var k = ITEMS.indexOf(it), prev = ITEMS[k - 1], next = ITEMS[k + 1], d = S.done[id];
     var body = it.type === "lesson" ? tabsHTML(id) : it.type === "slides" ? slidesHTML() : it.type === "audio" ? audioHTML() : it.type === "image" ? imageHTML() : it.type === "mindmap" ? mindmapHTML() : it.type === "cards" ? cardsHTML() : it.type === "quiz" ? evalHTML() : it.type === "quiz2" ? guideHTML() : atelierHTML();
     var meta = '<span>' + ic(it.icon) + esc(it.tag) + '</span><span>' + ic("clock") + esc(it.dur) + '</span>';
@@ -539,7 +554,8 @@
   document.addEventListener("click", function (e) {
     var el = e.target.closest("[data-action]"); if (!el) return;
     var a = el.getAttribute("data-action");
-    if (a === "logout") { if (SEC) SEC.signOut(); }
+    if (a === "ht") { HT = el.getAttribute("data-t"); var yy = window.scrollY; render(); window.scrollTo(0, yy); }
+    else if (a === "logout") { if (SEC) SEC.signOut(); }
     else if (a === "lang") { setLang(el.getAttribute("data-l")); }
     else if (a === "login") { var ln = $("#loginName"); if (ln && ln.value.trim()) S.name = ln.value.trim(); S.logged = true; save(); location.hash = "#/"; render(); }
     else if (a === "menu") { $("#nav").classList.toggle("open"); }
