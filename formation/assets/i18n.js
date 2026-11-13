@@ -112,6 +112,10 @@ window.I18N_PT = {
     "À retenir": "Para guardar", "Repère dans le script": "Marca de tempo no roteiro", "L’erreur fréquente et le conseil de Diane": "O erro frequente e o conselho da Diane", "Diane Hair Beauty (démo)": "Diane Hair Beauty (demo)", "Connexion": "Acesso", "Check-list": "Checklist", "Mots de passe": "Senhas"
   },
   rules: [
+    [/^Bienvenue, (.+)$/, "Bem-vinda, $1"],
+    [/^Module pilote · (\d+) étapes$/, "Módulo piloto · $1 etapas"],
+    [/^(\d+) sur (\d+) terminées · (\d+) % complété$/, "$1 de $2 concluídas · $3% concluído"],
+    [/^Elle se débloque après les (\d+) étapes\. Aperçu avec votre nom disponible\.$/, "Libera após as $1 etapas. Prévia com o seu nome disponível."],
     [/^Carte (\d+) \/ (\d+)$/, "Cartão $1 / $2"],
     [/^(\d+) thèmes$/, "$1 temas"],
     [/^(\d+) cartes$/, "$1 cartões"],
