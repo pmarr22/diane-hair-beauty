@@ -685,3 +685,17 @@ body{background:#fff;color:var(--txt);background-image:none}
 .lg-l .lg-c p.lg-q{font-family:'Playfair Display','Lora',Georgia,serif;font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.15;color:#fff;font-weight:500}
 .lg-l .lg-c p.lg-s{font-family:'Poppins',sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#e6e6e6;line-height:1.5}
 @media (max-width:1000px){.lg-l img.lg-lg{width:84px;height:84px}.lg-l .lg-c p.lg-q{font-size:1.45rem}.lg-l .lg-c p.lg-s{font-size:.66rem}}
+/* connexion v3 : texte centré, photo droite, visage dégagé */
+.lg-l .bg{background-position:center 38%}
+.lg-ph{transform:none;right:30px;top:30px;width:min(22%,168px);border-width:2px}
+.lg-l .lg-c{left:34px;right:34px;text-align:center;align-items:center}
+.lg-l .lg-c p.lg-q{max-width:none;text-align:center}
+.lg-l .lg-c p.lg-q em{display:block}
+.lg-l .lg-c p.lg-s{text-align:center}
+@media (max-width:1000px){
+  .lg-l{min-height:0;aspect-ratio:3/4;max-height:78vh}
+  .lg-l .bg{background-position:center 45%;animation:none}
+  .lg-l::after{background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 55%,rgba(0,0,0,.9) 100%)}
+  .lg-ph{display:none}
+  .lg-l .lg-c{left:18px;right:18px;bottom:20px}
+}
