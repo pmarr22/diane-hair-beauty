@@ -40,7 +40,7 @@
   var KEY = "dhb_formation_demo_v1";
   var S = { logged: false, name: "", lang: "", done: {}, checks: {}, scores: {} };
   try { var raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch (e) {}
-  var SEC = window.__SECURE || null;
+  var SEC = window.__SECURE || null, PROT = !!(SEC && !SEC.admin);
   if (SEC) { S.logged = true; if (!S.name && SEC.name) S.name = SEC.name; }
   /* mode sécurisé : les fichiers du cours sont servis par des liens signés (valables après connexion) */
   var U = function (h) { var m = window.__URLS; return m ? String(h).replace(/assets\/(?:img|photos|slides|media|pdf)\/[A-Za-z0-9_.\-]+/g, function (p) { return m[p] || p; }) : h; };
@@ -216,6 +216,7 @@
       return '<div class="card print-area"><div class="cl-bar"><h2 style="margin:0">Check-list à imprimer</h2><button class="btn sm" data-action="print">' + ic("print") + ' Imprimer</button></div>' + groups + '</div>';
     }
     if (tab === "res") {
+      if (PROT) return '<div class="card"><div class="res">' + ic("lock") + '<div><b>Supports consultables en ligne</b><small>Le contenu de cette leçon (texte, quiz, check-list) est disponible dans les onglets. Le téléchargement n’est pas activé.</small></div></div></div>';
       return (LANG === "pt" ? '<div class="note" style="margin:0 0 12px">Ce contenu est en français.</div>' : "") + '<div class="card"><div class="res">' + ic("file") + '<div><b>' + esc(it.tag) + ' · support complet (PDF)</b><small>' + it.pdfInfo + ' · script, diaporama, quiz et check-list</small></div><a class="btn sm" href="' + it.pdf + '" target="_blank" rel="noopener">Ouvrir</a><a class="btn gold sm" href="' + it.pdf + '" download>' + ic("dl") + ' Télécharger</a></div></div>';
     }
     var h = '<section class="card obj"><h2>À la fin de cette leçon, vous saurez :</h2><ol>' + L.objectives.map(function (o) { return '<li>' + o + '</li>'; }).join("") + '</ol></section>';
@@ -245,7 +246,7 @@
   function slidesHTML() {
     var thumbs = ""; for (var k = 1; k <= 9; k++) thumbs += '<button data-action="slide" data-i="' + (k - 1) + '" class="' + (k - 1 === SL.i ? "on" : "") + '" aria-label="Diapositive ' + k + '"><img src="assets/slides/s' + k + '.webp" alt="" loading="lazy"></button>';
     return '<div class="slides"><div class="stage"><img id="slImg" src="assets/slides/s' + (SL.i + 1) + '.webp" alt="Diapositive ' + (SL.i + 1) + '"></div><div class="slbar"><button class="icobtn" data-action="slide-prev" aria-label="Précédente">' + ic("left") + '</button><span id="slNum">' + (SL.i + 1) + ' / 9</span><button class="icobtn" data-action="slide-next" aria-label="Suivante">' + ic("right") + '</button></div><div class="thumbs">' + thumbs + '</div>' +
-      '<div class="note"><a href="assets/pdf/masterclass.pdf" download style="color:var(--gold-l);text-decoration:underline">Télécharger le PDF</a></div></div>';
+      (PROT ? "" : '<div class="note"><a href="assets/pdf/masterclass.pdf" download style="color:var(--gold-l);text-decoration:underline">Télécharger le PDF</a></div>') + '</div>';
   }
   function setSlide(i) {
     SL.i = (i + 9) % 9;
@@ -270,13 +271,13 @@
       arr.map(function (x, i) { return '<div class="trp"><button class="trt" data-action="seek" data-s="' + P.fr[i].s + '" aria-label="Écouter à ' + P.fr[i].t + '">' + ic("play") + P.fr[i].t + '</button><p>' + esc(x.p) + '</p></div>'; }).join("") + '</section>';
   }
   function audioHTML() {
-    return '<section class="card"><div class="audio"><img src="assets/photos/podcast.webp" alt=""><div><h2 style="margin-bottom:4px">Les pièges du lissage sans formol</h2><small style="color:var(--mut)">Conversation de 5 min 26 · à écouter en salon ou en déplacement</small><audio id="aud" controls preload="metadata" src="assets/media/podcast.mp3"></audio><div class="speed" role="group" aria-label="Vitesse de lecture">' + [["1", "1×"], ["1.25", "1,25×"], ["1.5", "1,5×"]].map(function (s, k) { return '<button class="' + (k === 0 ? "on" : "") + '" data-action="speed" data-s="' + s[0] + '">' + s[1] + '</button>'; }).join("") + '</div></div></div></section>' +
+    return '<section class="card"><div class="audio"><img src="assets/photos/podcast.webp" alt=""><div><h2 style="margin-bottom:4px">Les pièges du lissage sans formol</h2><small style="color:var(--mut)">Conversation de 5 min 26 · à écouter en salon ou en déplacement</small><audio id="aud" controls controlsList="nodownload noplaybackrate" disablePictureInPicture preload="metadata" src="assets/media/podcast.mp3"></audio><div class="speed" role="group" aria-label="Vitesse de lecture">' + [["1", "1×"], ["1.25", "1,25×"], ["1.5", "1,5×"]].map(function (s, k) { return '<button class="' + (k === 0 ? "on" : "") + '" data-action="speed" data-s="' + s[0] + '">' + s[1] + '</button>'; }).join("") + '</div></div></div></section>' +
       '<div class="note">Dans la formation finale, l’épisode peut être enregistré avec la voix de Diane.</div>' + transcriptHTML();
   }
   function imageHTML() {
     return '<button class="infog" data-action="zoom" data-src="assets/img/infographie.webp" aria-label="Agrandir l’infographie"><img src="assets/img/infographie.webp" alt="Infographie : le protocole du lissage brésilien, diagnostic et application" width="2000" height="1086"><span class="zoomhint">Toucher pour agrandir</span></button>' +
       '<details class="card tbcbox" style="margin-top:14px"><summary>' + ic("alert") + ' À vérifier avant publication<span style="margin-left:auto">' + ic("down") + '</span></summary><p>Relire l’orthographe dans l’image (par exemple « brésllien », « ventllée ») et faire valider par Diane les températures (150 à 230 °C), la distance à la racine et les temps indiqués.</p></details>' +
-      '<div style="margin-top:12px"><a class="btn sm" href="assets/img/infographie.webp" download>' + ic("dl") + ' Télécharger l’image</a></div>';
+      (PROT ? "" : '<div style="margin-top:12px"><a class="btn sm" href="assets/img/infographie.webp" download>' + ic("dl") + ' Télécharger l’image</a></div>');
   }
   function evalHTML() {
     return '<section class="card"><h2>Validez vos acquis</h2><p style="color:var(--mut)">10 questions tirées au hasard dans une banque de ' + evalQs().length + ' questions (leçons et guide). Réussite à partir de 7 bonnes réponses. Vous avez 2 tentatives : en cas d’échec, relisez les leçons puis réessayez (les questions changent).</p></section>' + quizBox("evaluation", evalQs());
@@ -522,6 +523,30 @@
     document.documentElement.lang = LANG; Q = {}; busy = true; walkNode(document.body); busy = false; render();
   }
 
+
+  /* ---------- protection du contenu (mode sécurisé, hors administrateur) ---------- */
+  function initProtect() {
+    if (!PROT) return;
+    document.body.classList.add("prot");
+    var wm = document.createElement("div"); wm.className = "wm"; wm.setAttribute("aria-hidden", "true");
+    var t = (SEC.email || "") + " · " + new Date().toLocaleDateString("fr-FR"), cell = "";
+    for (var k = 0; k < 90; k++) cell += "<span>" + t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</span>";
+    wm.innerHTML = cell; document.body.appendChild(wm);
+    var cov = document.createElement("div"); cov.className = "cover"; cov.hidden = true; cov.innerHTML = "<p>Contenu protégé<br><small>Revenez sur cette fenêtre pour continuer.</small></p>"; document.body.appendChild(cov);
+    var ok = function (e) { return e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName); };
+    ["contextmenu", "copy", "cut", "dragstart", "selectstart"].forEach(function (ev) { document.addEventListener(ev, function (e) { if (!ok(e)) e.preventDefault(); }); });
+    document.addEventListener("keydown", function (e) {
+      var k = (e.key || "").toLowerCase(), mod = e.ctrlKey || e.metaKey;
+      if ((mod && ["s", "p", "u", "c", "a", "x"].indexOf(k) > -1 && !ok(e)) || k === "f12" || (mod && e.shiftKey && ["i", "j", "c", "s"].indexOf(k) > -1) || k === "printscreen") {
+        e.preventDefault();
+        if (k === "printscreen") { try { navigator.clipboard.writeText(""); } catch (x) {} cov.hidden = false; setTimeout(function () { cov.hidden = document.visibilityState === "hidden" ? false : true; }, 1500); }
+      }
+    }, true);
+    document.addEventListener("keyup", function (e) { if ((e.key || "").toLowerCase() === "printscreen") { try { navigator.clipboard.writeText(""); } catch (x) {} } });
+    document.addEventListener("visibilitychange", function () { cov.hidden = document.visibilityState !== "hidden"; });
+    window.addEventListener("beforeprint", function () { cov.hidden = false; }); window.addEventListener("afterprint", function () { cov.hidden = true; });
+  }
+
   /* ---------- routeur ---------- */
   function parse() {
     var h = (location.hash || "#/").replace(/^#/, ""), p = h.split("/").filter(Boolean);
@@ -544,6 +569,7 @@
     app.innerHTML = U(login ? loginPage() : r.name === "home" ? homePage() : r.name === "lesson" ? lessonPage(r.id) : r.name === "espace" ? espacePage() : r.name === "faq" ? faqPage() : r.name === "certificat" ? certPage() : notFound());
     if (r.name === "certificat") drawCert($("#certCv"), certName());
     window.scrollTo(0, 0);
+    if (PROT && !window.__protOn) { window.__protOn = 1; initProtect(); }
     if (r.name === "lesson" && r.id === "mindmap") mmInit();
     document.title = trT((login ? "Connexion" : r.name === "lesson" && byId(r.id) ? byId(r.id).title : "Espace formation") + (SEC ? " · Diane Hair Beauty" : " · Diane Hair Beauty (démo)"));
   }
