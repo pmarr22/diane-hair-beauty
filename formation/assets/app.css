@@ -702,3 +702,13 @@ body{background:#fff;color:var(--txt);background-image:none}
 /* connexion v4 : logo en haut à gauche, haute définition */
 .lg-l img.lg-lg{left:28px;top:24px;transform:none;width:132px;height:132px;image-rendering:auto}
 @media (max-width:1000px){.lg-l{max-height:none}.lg-l img.lg-lg{left:16px;top:14px;width:92px;height:92px}}
+/* protection */
+body.prot{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+body.prot input,body.prot textarea{-webkit-user-select:text;user-select:text}
+body.prot img,body.prot canvas,body.prot video{-webkit-user-drag:none;user-drag:none}
+.wm{position:fixed;inset:-10%;z-index:90;pointer-events:none;display:flex;flex-wrap:wrap;align-content:flex-start;gap:70px 60px;transform:rotate(-24deg);overflow:hidden;opacity:.13}
+.wm span{font:600 14px 'Poppins',sans-serif;color:#000;white-space:nowrap}
+.cover{position:fixed;inset:0;z-index:300;background:#0a0a0a;color:#efd77f;display:grid;place-items:center;text-align:center;font-size:1.3rem}
+.cover[hidden]{display:none}.cover small{color:#bbb;font-size:.9rem}
+@media print{body.prot *{display:none!important}body.prot::before{content:"Contenu protégé";display:block;font-size:20pt;padding:40mm}}
+.lcard h1+p{line-height:1.5}

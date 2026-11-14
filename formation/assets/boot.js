@@ -5,8 +5,8 @@
   var CFG = window.DHB_CONFIG || {}, KEY = "dhb_formation_demo_v1", app = document.getElementById("app");
   var LANG = "fr"; try { var st = JSON.parse(localStorage.getItem(KEY) || "{}"); if (st.lang === "pt" && CFG.pt) LANG = "pt"; } catch (e) {}
   var T = {
-    fr: { title: "Connexion élève", kick: "Espace formation", mail: "E-mail", pass: "Mot de passe", go: "Se connecter", wait: "Connexion…", bad: "E-mail ou mot de passe incorrect.", load: "Chargement de votre formation…", fail: "Impossible de charger la formation. Réessayez dans un instant.", help: "Accès réservé aux élèves inscrits. Un problème de connexion ? Écrivez à contact@dianehairbeauty.fr.", slogan: "Avec Diane, révélez la beauté de vos clientes.", q1: "Chaque mèche raconte une histoire.", q2: "Apprenez l’art de la sublimer.", sub: "Plateforme de formation · Coiffure · Techniques · Tendances", off: "Cette plateforme n’est pas encore configurée." },
-    pt: { title: "Acesso do aluno", kick: "Espaço de formação", mail: "E-mail", pass: "Senha", go: "Entrar", wait: "Entrando…", bad: "E-mail ou senha incorretos.", load: "Carregando sua formação…", fail: "Não foi possível carregar a formação. Tente de novo em instantes.", help: "Acesso reservado aos alunos inscritos. Problema para entrar? Escreva para contact@dianehairbeauty.fr.", slogan: "Com a Diane, revele a beleza das suas clientes.", q1: "Cada mecha conta uma história.", q2: "Aprenda a arte de valorizá-la.", sub: "Plataforma de formação · Cabelo · Técnicas · Tendências", off: "Esta plataforma ainda não está configurada." }
+    fr: { title: "Connexion élève", kick: "Espace formation", mail: "E-mail", pass: "Mot de passe", go: "Se connecter", wait: "Connexion…", bad: "E-mail ou mot de passe incorrect.", load: "Chargement de votre formation…", fail: "Impossible de charger la formation. Réessayez dans un instant.", help: "Accès réservé aux élèves inscrits. Un problème de connexion ? Écrivez à contact@dianehairbeauty.fr.", slogan: "Avec Diane, révélez la beauté de vos clientes.", np: "Créez votre mot de passe", npk: "Première connexion", np1: "Nouveau mot de passe", np2: "Confirmer le mot de passe", npgo: "Enregistrer et entrer", nph: "Choisissez un mot de passe personnel d’au moins 8 caractères. Il remplace le mot de passe provisoire.", npe1: "Le mot de passe doit contenir au moins 8 caractères.", npe2: "Les deux mots de passe ne sont pas identiques.", npe3: "Impossible d’enregistrer le mot de passe. Réessayez.", q1: "Chaque mèche raconte une histoire.", q2: "Apprenez l’art de la sublimer.", sub: "Plateforme de formation · Coiffure · Techniques · Tendances", off: "Cette plateforme n’est pas encore configurée." },
+    pt: { title: "Acesso do aluno", kick: "Espaço de formação", mail: "E-mail", pass: "Senha", go: "Entrar", wait: "Entrando…", bad: "E-mail ou senha incorretos.", load: "Carregando sua formação…", fail: "Não foi possível carregar a formação. Tente de novo em instantes.", help: "Acesso reservado aos alunos inscritos. Problema para entrar? Escreva para contact@dianehairbeauty.fr.", slogan: "Com a Diane, revele a beleza das suas clientes.", np: "Crie sua senha", npk: "Primeiro acesso", np1: "Nova senha", np2: "Confirmar a senha", npgo: "Salvar e entrar", nph: "Escolha uma senha pessoal de pelo menos 8 caracteres. Ela substitui a senha provisória.", npe1: "A senha precisa ter pelo menos 8 caracteres.", npe2: "As duas senhas não são iguais.", npe3: "Não foi possível salvar a senha. Tente de novo.", q1: "Cada mecha conta uma história.", q2: "Aprenda a arte de valorizá-la.", sub: "Plataforma de formação · Cabelo · Técnicas · Tendências", off: "Esta plataforma ainda não está configurada." }
   };
   var esc = function (s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); };
   function setLang(l) { LANG = l; try { var s = JSON.parse(localStorage.getItem(KEY) || "{}"); s.lang = l; localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} document.documentElement.lang = l; }
@@ -44,7 +44,32 @@
     });
     var e1 = document.getElementById("em"); if (e1) e1.focus();
   }
-  function start(session) {
+  function setPassHTML(msg, busy) {
+    var t = T[LANG];
+    return '<div class="login"><div class="lg-l"><div class="bg" style="background-image:url(assets/img/login-tesoura.webp)"></div><img class="lg-lg" src="assets/img/login-logo.webp" alt="Formation Diane Hair" width="640" height="640"><div class="lg-c"><p class="lg-q">' + t.q1 + ' <em>' + t.q2 + '</em></p><p class="lg-s">' + t.sub + '</p></div></div>' +
+      '<div class="lg-r"><form class="lcard" id="pf" novalidate><div class="kick">' + t.npk + '</div><h1>' + t.np + '</h1><p style="color:var(--mut);font-size:.9rem;margin:-4px 0 16px">' + t.nph + '</p>' +
+      '<label class="fld"><span>' + t.np1 + '</span><input type="password" id="p1" autocomplete="new-password" minlength="8"></label>' +
+      '<label class="fld"><span>' + t.np2 + '</span><input type="password" id="p2" autocomplete="new-password"></label>' +
+      '<div class="lerr" role="alert">' + (msg ? esc(msg) : "") + '</div><button type="submit" class="btn gold"' + (busy ? " disabled" : "") + '>' + t.npgo + '</button></form></div></div>';
+  }
+  function showSetPass(session, msg) {
+    app.innerHTML = setPassHTML(msg, false);
+    document.getElementById("pf").addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var a = document.getElementById("p1").value, b = document.getElementById("p2").value;
+      if (a.length < 8) { showSetPass(session, T[LANG].npe1); return; }
+      if (a !== b) { showSetPass(session, T[LANG].npe2); return; }
+      app.innerHTML = setPassHTML("", true);
+      client.auth.updateUser({ password: a, data: { must_change_password: false } }).then(function (r) {
+        if (r.error) { showSetPass(session, T[LANG].npe3); return; }
+        client.auth.getSession().then(function (g) { start(g.data.session || session, true); });
+      }).catch(function () { showSetPass(session, T[LANG].npe3); });
+    });
+    document.getElementById("p1").focus();
+  }
+  function start(session, passOk) {
+    var u0 = session.user || {};
+    if (!passOk && (u0.user_metadata || {}).must_change_password) { showSetPass(session); return; }
     status(T[LANG].load);
     var bucket = client.storage.from(CFG.bucket || "course");
     bucket.download("content.json").then(function (r) {
@@ -59,7 +84,7 @@
       var map = {}; (r.data || []).forEach(function (x) { if (x.signedUrl && x.path) map[x.path] = x.signedUrl; });
       window.__URLS = map;
       var u = session.user || {}, md = u.user_metadata || {};
-      window.__SECURE = { email: u.email || "", name: md.name || md.full_name || "", signOut: function () { client.auth.signOut().then(function () { location.reload(); }, function () { location.reload(); }); } };
+      window.__SECURE = { email: u.email || "", admin: ((u.app_metadata || {}).role === "admin"), name: md.name || md.full_name || "", signOut: function () { client.auth.signOut().then(function () { location.reload(); }, function () { location.reload(); }); } };
       var s = document.createElement("script"); s.src = "assets/app.js?v=" + (CFG.v || "1"); document.body.appendChild(s);
     }).catch(function () { status(T[LANG].fail); });
   }
