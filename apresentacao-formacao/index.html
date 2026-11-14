@@ -113,6 +113,8 @@ td.us,th.us{background:#fffaf0}th.us{background:var(--gold);color:#111}
 .pk li.soon:after{content:"em breve";margin-left:8px;font-size:.7rem;background:#f1f1f1;border-radius:20px;padding:2px 9px;color:#666}
 .price{font-family:var(--serif);font-size:2.3rem;color:var(--gold);line-height:1}
 .price small{display:block;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:4px}
+.pk .pd{color:var(--muted);font-size:.92rem;margin-top:4px}
+table.mx td.y{color:#1f7a45;font-weight:600;text-align:center}table.mx td.n{color:var(--muted);text-align:center;font-size:.85rem}table.mx th{text-align:center}table.mx th:first-child{text-align:left}table.mx small{color:#ddd;font-weight:400}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;counter-reset:s}
 .steps div{background:#141414;border:1px solid #2b2b2b;border-radius:18px;padding:22px;transition:.3s}
 .steps div:hover{border-color:var(--gold2);transform:translateY(-5px)}
@@ -124,6 +126,7 @@ footer{background:#000;color:#aaa;padding:34px 0;text-align:center;font-size:.85
 footer b{color:var(--gold3);font-family:var(--serif);font-size:1.1rem}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
 .rv.in{opacity:1;transform:none}
+@media(max-width:1000px){.g3{grid-template-columns:1fr}}
 @media(max-width:860px){.hg,.g2,.g3,.g4,.steps,.calc{grid-template-columns:1fr}.nums{grid-template-columns:repeat(2,1fr)}.jr{grid-template-columns:1fr;gap:22px}.jr:before{display:none}.hero{min-height:auto}.hg{padding-top:96px}.mock .ph{width:34%}section{padding:60px 0}.topbar span{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -250,24 +253,28 @@ footer b{color:var(--gold3);font-family:var(--serif);font-size:1.1rem}
 
 <section class="alt" id="pacotes"><div class="w">
   <span class="kick rv">Pacotes</span>
-  <h2 class="rv">Dois formatos, <em>sob medida</em>.</h2>
-  <div class="grid g2" style="align-items:start">
-    <div class="pk top rv"><span class="tag">Completo · 3 cursos</span>
+  <h2 class="rv">Escolha como <em>começar</em>.</h2>
+  <p class="lead rv">Nossa recomendação é ter a <b>plataforma própria</b>: sua marca, seus alunos e nenhuma comissão. Para quem quer começar numa plataforma pronta, existe um pacote de apoio, e o que for pago vira desconto na migração.</p>
+  <div class="grid g3" style="align-items:start">
+    <div class="pk top rv"><span class="tag">Recomendado · 3 cursos</span>
       <h3>Combo completo</h3>
+      <p class="pd">Plataforma própria + 3 cursos prontos para vender.</p>
       <ul>
         <li>Plataforma com a sua marca e login seguro</li>
-        <li class="soon">Espaço da formadora (acompanhar o que as alunas fazem)</li>
+        <li class="soon">Espaço da formadora (acompanhar as alunas)</li>
         <li>Certificado com o nome da aluna</li>
         <li>Pagamento online</li>
         <li>Avaliação final (2 chances) e quiz</li>
-        <li>Criação do conteúdo de <b>3 cursos</b>: edição e criação de vídeos, textos e apresentações</li>
+        <li>Criação do conteúdo de <b>3 cursos</b>: vídeos, textos e apresentações</li>
+        <li>Organização do curso, material pronto, página de vendas, treinamento e divulgação</li>
       </ul>
       <div class="price">1.200 € HT<small>parcelável em 2x</small></div>
     </div>
     <div class="pk rv"><h3>Pacote simples</h3>
+      <p class="pd">Plataforma própria + 2 cursos.</p>
       <ul>
         <li>Plataforma com a sua marca e login seguro</li>
-        <li class="soon">Espaço da formadora (acompanhar o que as alunas fazem)</li>
+        <li class="soon">Espaço da formadora (acompanhar as alunas)</li>
         <li>Certificado com o nome da aluna</li>
         <li>Avaliação final (2 chances) e quiz</li>
         <li>Criação do conteúdo de <b>2 cursos</b></li>
@@ -275,8 +282,36 @@ footer b{color:var(--gold3);font-family:var(--serif);font-size:1.1rem}
       <div class="price">999 € HT<small>parcelável em 2x</small></div>
       <p style="margin-top:14px;padding:12px 14px;background:#fffaf0;border:1px solid #efe0a8;border-radius:12px;font-size:.92rem"><b>+ 299 € HT por curso acrescentado</b> (conteúdo, quiz e certificado do novo curso).</p>
     </div>
+    <div class="pk rv"><h3>Já tenho Hotmart (ou outra plataforma)</h3>
+      <p class="pd">Apoio para montar o curso na plataforma que você já usa.</p>
+      <ul>
+        <li>Download e preparação dos seus materiais</li>
+        <li>Organização da plataforma: módulos, aulas, títulos e capas</li>
+        <li>Ajuda na criação do conteúdo: edição e criação de vídeos, textos e apresentações</li>
+        <li>Quiz, prova final e certificado com a marca da Diane, prontos para usar</li>
+        <li>Página de vendas e configuração de pagamento, preços e e-mails</li>
+        <li>Treinamento de 1 hora e textos de divulgação (Instagram e WhatsApp)</li>
+      </ul>
+      <div class="price">599 € HT<small>a taxa da plataforma continua por venda</small></div>
+      <p style="margin-top:14px;padding:12px 14px;background:#fffaf0;border:1px solid #efe0a8;border-radius:12px;font-size:.92rem"><b>Depois, quer a plataforma própria?</b> O que foi pago entra como desconto no pacote de 999 € ou de 1.200 € HT.</p>
+    </div>
   </div>
-  <div class="card rv" style="margin-top:20px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h3>Opção adicional: versão em português</h3><p>A plataforma e o conteúdo traduzidos, com troca de idioma FR/PT para as alunas.</p></div><div class="price" style="text-align:right;font-size:1.8rem">+ 200 € HT</div></div>
+  <h3 class="rv" style="font-family:var(--serif);font-size:1.7rem;margin:46px 0 4px">O que está incluído em cada pacote</h3>
+  <div class="tw rv"><table class="mx">
+    <tr><th>Incluído</th><th>Combo completo<br><small>1.200 € HT</small></th><th>Pacote simples<br><small>999 € HT</small></th><th>Hotmart ou outra<br><small>599 € HT</small></th></tr>
+    <tr><td>Plataforma própria com a sua marca e login seguro</td><td class="y">✓</td><td class="y">✓</td><td class="n">usa a plataforma escolhida</td></tr>
+    <tr><td>Espaço da formadora <i>(em breve)</i></td><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+    <tr><td>Sem comissão sobre as suas vendas</td><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+    <tr><td>Pagamento online</td><td class="y">✓</td><td class="n">sob consulta</td><td class="y">configurado na plataforma</td></tr>
+    <tr><td>Certificado com o nome da aluna</td><td class="y">✓</td><td class="y">✓</td><td class="y">modelo pronto</td></tr>
+    <tr><td>Avaliação final (2 chances) e quiz</td><td class="y">✓</td><td class="y">✓</td><td class="y">conteúdo pronto</td></tr>
+    <tr><td>Criação do conteúdo (vídeos, textos, apresentações)</td><td class="y">3 cursos</td><td class="y">2 cursos</td><td class="y">ajuda, conforme combinado</td></tr>
+    <tr><td>Download e organização dos materiais e da plataforma</td><td class="y">✓</td><td class="n">opcional</td><td class="y">✓</td></tr>
+    <tr><td>Página de vendas e configuração de pagamento</td><td class="y">✓</td><td class="n">opcional</td><td class="y">✓</td></tr>
+    <tr><td>Treinamento da Diane (1 h) e textos de divulgação</td><td class="y">✓</td><td class="n">opcional</td><td class="y">✓</td></tr>
+    <tr><td>Curso adicional</td><td class="n">299 € HT</td><td class="n">299 € HT</td><td class="n">299 € HT</td></tr>
+  </table></div>
+  <div class="card rv" style="margin-top:20px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><h3>Opção adicional: versão em português</h3><p>A plataforma e o conteúdo traduzidos, com troca de idioma FR/PT para as alunas (plataforma própria).</p></div><div class="price" style="text-align:right;font-size:1.8rem">+ 200 € HT</div></div>
   <p class="note">Valores em euros, sem TVA (HT). Hospedagem e taxas de pagamento online (terceiros) são informadas à parte e têm plano gratuito para começar. Combo: 3 cursos por 1.200 € (no pacote simples, 3 cursos sairiam por 1.298 €).</p>
 </div></section>
 
